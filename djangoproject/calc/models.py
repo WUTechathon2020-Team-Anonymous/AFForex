@@ -11,5 +11,14 @@ class Cur(models.Model):
 	def __str__(self):
 		return self.currency_name
 
+class CompareOutput(models.Model):
+	id = models.AutoField(primary_key=True)
+	rate = models.FloatField()
+	name = models.CharField(max_length = 50)
+	link = models.URLField()
+
+	def __str__(self):
+		return self.name
+
 
 # Create your models here.

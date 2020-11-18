@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Cur
+from .models import Cur,CompareOutput
 from django.utils import timezone
 import pickle
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
@@ -19,6 +20,8 @@ def conv(request):
 	# val1 = request.POST['base_currency']	
 	val2 = request.POST['target_currency']
 
+	# updateData()
+
 	cur = Cur.objects.values()
 	cur.query = pickle.loads(pickle.dumps(cur.query))
 
@@ -26,126 +29,141 @@ def conv(request):
 	# currency_detail1 = Cur.objects.get(currency_name = val1)
 	currency_detail2 = Cur.objects.get(currency_name = val2)
 
+	co1 = CompareOutput.objects.get(id = 1)
+	co1.rate = currency_detail2.rate1
+	co1.save()
+	co2 = CompareOutput.objects.get(id = 2)
+	co2.rate = currency_detail2.rate2
+	co2.save()
+	co3 = CompareOutput.objects.get(id = 3)
+	co3.rate = currency_detail2.rate3
+	co3.save()
+	co4 = CompareOutput.objects.get(id = 4)
+	co4.rate = currency_detail2.rate4
+	co4.save()
+	
+	co = CompareOutput.objects.all().order_by("rate")
+	print(co)
+	rate = co[0].rate
 	# rate = currency_detail2.rate1/currency_detail1.rate1
-	rate = currency_detail2.rate1
-	return render(request,'convert.html',{'tcurr':val2 ,'cur':currency_detail2, 'rate':rate})
+	return render(request,'convert.html',{'tcurr':val2 ,'cur':currency_detail2,'co':co , 'rate' : rate})
 
 def updateData():
-	# var1 = scrapedatabmf()
-	# print("len in conv fun")
-	# print(len(var1))
+	bmf = scrapedatabmf()
+	print("len in conv fun")
+	print(len(bmf))
 
-	# var4 = scrapedatazenth()
-	# print(len(var4))
+	zeneth = scrapedatazenth()
+	print(len(zeneth))
 
-	# var3 = scrapedatacrcykrt()
-	# print(len(var3))
+	crcykrt = scrapedatacrcykrt()
+	print(len(crcykrt))
 
-	var2 = scrapedatatmsck()
-	print(var2)
+	tmsck = scrapedatatmsck()
+	print(tmsck)
 	count = 0
-	for v in var2:
+	for v in tmsck:
 		print(count)
 		print(v)
 		print("--------")
 		count += 1
 	# count = 0
 
-	# if len(var1)>0:
-	# 	USD_rate_bmf = var1[0].split(" ")
-	# 	currency_detail_USD = Cur.objects.get(currency_name = 'USD')
-	# 	currency_detail_USD.rate1 = USD_rate_bmf[4]
-	# 	currency_detail_USD.lastupdated = timezone.now()
-	# 	currency_detail_USD.save()
-
-	# 	EUR_rate_bmf = var1[1].split(" ")
-	# 	currency_detail_EUR = Cur.objects.get(currency_name = 'EUR')
-	# 	currency_detail_EUR.rate1 = EUR_rate_bmf[4]
-	# 	currency_detail_EUR.lastupdated = timezone.now()
-	# 	currency_detail_EUR.save()
-
-	# 	GBP_rate_bmf = var1[2].split(" ")
-	# 	currency_detail_GBP = Cur.objects.get(currency_name = 'GBP')
-	# 	currency_detail_GBP.rate1 = GBP_rate_bmf[4]
-	# 	currency_detail_GBP.lastupdated = timezone.now()
-	# 	currency_detail_GBP.save()
-
-	# 	AUD_rate_bmf = var1[3].split(" ")
-	# 	currency_detail_AUD = Cur.objects.get(currency_name = 'AUD')
-	# 	currency_detail_AUD.rate1 = AUD_rate_bmf[4]
-	# 	currency_detail_AUD.lastupdated = timezone.now()
-	# 	currency_detail_AUD.save()
-
-	if len(var2)>0:
+	if len(bmf)>0:
+		USD_rate_bmf = bmf[0].split(" ")
 		currency_detail_USD = Cur.objects.get(currency_name = 'USD')
-		currency_detail_USD.rate2 = var2[2]
+		currency_detail_USD.rate1 = USD_rate_bmf[4]
+		currency_detail_USD.lastupdated = timezone.now()
+		currency_detail_USD.save()
+
+		EUR_rate_bmf = bmf[1].split(" ")
+		currency_detail_EUR = Cur.objects.get(currency_name = 'EUR')
+		currency_detail_EUR.rate1 = EUR_rate_bmf[4]
+		currency_detail_EUR.lastupdated = timezone.now()
+		currency_detail_EUR.save()
+
+		GBP_rate_bmf = bmf[2].split(" ")
+		currency_detail_GBP = Cur.objects.get(currency_name = 'GBP')
+		currency_detail_GBP.rate1 = GBP_rate_bmf[4]
+		currency_detail_GBP.lastupdated = timezone.now()
+		currency_detail_GBP.save()
+
+		AUD_rate_bmf = bmf[3].split(" ")
+		currency_detail_AUD = Cur.objects.get(currency_name = 'AUD')
+		currency_detail_AUD.rate1 = AUD_rate_bmf[4]
+		currency_detail_AUD.lastupdated = timezone.now()
+		currency_detail_AUD.save()
+
+	if len(tmsck)>0:
+		currency_detail_USD = Cur.objects.get(currency_name = 'USD')
+		currency_detail_USD.rate2 = tmsck[2]
 		currency_detail_USD.lastupdated = timezone.now()
 		currency_detail_USD.save()
 
 		currency_detail_EUR = Cur.objects.get(currency_name = 'EUR')
-		currency_detail_EUR.rate2 = var2[7]
+		currency_detail_EUR.rate2 = tmsck[7]
 		currency_detail_EUR.lastupdated = timezone.now()
 		currency_detail_EUR.save()
 
 		currency_detail_GBP = Cur.objects.get(currency_name = 'GBP')
-		currency_detail_GBP.rate2 = var2[12]
+		currency_detail_GBP.rate2 = tmsck[12]
 		currency_detail_GBP.lastupdated = timezone.now()
 		currency_detail_GBP.save()
 
 		currency_detail_AUD = Cur.objects.get(currency_name = 'AUD')
-		currency_detail_AUD.rate2 = var2[47]
+		currency_detail_AUD.rate2 = tmsck[47]
 		currency_detail_AUD.lastupdated = timezone.now()
 		currency_detail_AUD.save()
 
-	# if len(var3)>0:
-	# 	USD_rate_bmf = var3[3].split(" ")
-	# 	currency_detail_USD = Cur.objects.get(currency_name = 'USD')
-	# 	currency_detail_USD.rate3 = USD_rate_bmf[3]
-	# 	currency_detail_USD.lastupdated = timezone.now()
-	# 	currency_detail_USD.save()
+	if len(crcykrt)>0:
+		USD_rate_bmf = crcykrt[3].split(" ")
+		currency_detail_USD = Cur.objects.get(currency_name = 'USD')
+		currency_detail_USD.rate3 = USD_rate_bmf[3]
+		currency_detail_USD.lastupdated = timezone.now()
+		currency_detail_USD.save()
 
-	# 	EUR_rate_bmf = var3[4].split(" ")
-	# 	currency_detail_EUR = Cur.objects.get(currency_name = 'EUR')
-	# 	currency_detail_EUR.rate3 = EUR_rate_bmf[3]
-	# 	currency_detail_EUR.lastupdated = timezone.now()
-	# 	currency_detail_EUR.save()
+		EUR_rate_bmf = crcykrt[4].split(" ")
+		currency_detail_EUR = Cur.objects.get(currency_name = 'EUR')
+		currency_detail_EUR.rate3 = EUR_rate_bmf[3]
+		currency_detail_EUR.lastupdated = timezone.now()
+		currency_detail_EUR.save()
 
-	# 	GBP_rate_bmf = var3[5].split(" ")
-	# 	currency_detail_GBP = Cur.objects.get(currency_name = 'GBP')
-	# 	currency_detail_GBP.rate3 = GBP_rate_bmf[3]
-	# 	currency_detail_GBP.lastupdated = timezone.now()
-	# 	currency_detail_GBP.save()
+		GBP_rate_bmf = crcykrt[5].split(" ")
+		currency_detail_GBP = Cur.objects.get(currency_name = 'GBP')
+		currency_detail_GBP.rate3 = GBP_rate_bmf[3]
+		currency_detail_GBP.lastupdated = timezone.now()
+		currency_detail_GBP.save()
 
-	# 	AUD_rate_bmf = var3[7].split(" ")
-	# 	currency_detail_AUD = Cur.objects.get(currency_name = 'AUD')
-	# 	currency_detail_AUD.rate3 = AUD_rate_bmf[3]
-	# 	currency_detail_AUD.lastupdated = timezone.now()
-	# 	currency_detail_AUD.save()
+		AUD_rate_bmf = crcykrt[7].split(" ")
+		currency_detail_AUD = Cur.objects.get(currency_name = 'AUD')
+		currency_detail_AUD.rate3 = AUD_rate_bmf[3]
+		currency_detail_AUD.lastupdated = timezone.now()
+		currency_detail_AUD.save()
 
-	# if len(var4)>0:
-	# 	USD_rate_bmf = var4[0].split(" ")
-	# 	currency_detail_USD = Cur.objects.get(currency_name = 'USD')
-	# 	currency_detail_USD.rate4 = USD_rate_bmf[4]
-	# 	currency_detail_USD.lastupdated = timezone.now()
-	# 	currency_detail_USD.save()
+	if len(zeneth)>0:
+		USD_rate_bmf = zeneth[0].split(" ")
+		currency_detail_USD = Cur.objects.get(currency_name = 'USD')
+		currency_detail_USD.rate4 = USD_rate_bmf[4]
+		currency_detail_USD.lastupdated = timezone.now()
+		currency_detail_USD.save()
 
-	# 	EUR_rate_bmf = var4[1].split(" ")
-	# 	currency_detail_EUR = Cur.objects.get(currency_name = 'EUR')
-	# 	currency_detail_EUR.rate4 = EUR_rate_bmf[4]
-	# 	currency_detail_EUR.lastupdated = timezone.now()
-	# 	currency_detail_EUR.save()
+		EUR_rate_bmf = zeneth[1].split(" ")
+		currency_detail_EUR = Cur.objects.get(currency_name = 'EUR')
+		currency_detail_EUR.rate4 = EUR_rate_bmf[4]
+		currency_detail_EUR.lastupdated = timezone.now()
+		currency_detail_EUR.save()
 
-	# 	GBP_rate_bmf = var4[2].split(" ")
-	# 	currency_detail_GBP = Cur.objects.get(currency_name = 'GBP')
-	# 	currency_detail_GBP.rate4 = GBP_rate_bmf[4]
-	# 	currency_detail_GBP.lastupdated = timezone.now()
-	# 	currency_detail_GBP.save()
+		GBP_rate_bmf = zeneth[2].split(" ")
+		currency_detail_GBP = Cur.objects.get(currency_name = 'GBP')
+		currency_detail_GBP.rate4 = GBP_rate_bmf[4]
+		currency_detail_GBP.lastupdated = timezone.now()
+		currency_detail_GBP.save()
 
-	# 	AUD_rate_bmf = var4[4].split(" ")
-	# 	currency_detail_AUD = Cur.objects.get(currency_name = 'AUD')
-	# 	currency_detail_AUD.rate4 = AUD_rate_bmf[4]
-	# 	currency_detail_AUD.lastupdated = timezone.now()
-	# 	currency_detail_AUD.save()
+		AUD_rate_bmf = zeneth[4].split(" ")
+		currency_detail_AUD = Cur.objects.get(currency_name = 'AUD')
+		currency_detail_AUD.rate4 = AUD_rate_bmf[4]
+		currency_detail_AUD.lastupdated = timezone.now()
+		currency_detail_AUD.save()
 
 
 def scrapedatabmf():
