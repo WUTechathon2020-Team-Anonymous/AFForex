@@ -20,7 +20,7 @@ def conv(request):
 	# val1 = request.POST['base_currency']	
 	val2 = request.POST['target_currency']
 
-	# updateData()
+	updateData()
 
 	cur = Cur.objects.values()
 	cur.query = pickle.loads(pickle.dumps(cur.query))
