@@ -20,38 +20,42 @@ def update_forex_rates():
 	forex_provider_rates = ForexProviderRates()
 
 	values = forex_provider_rates.scrape_bookmyforex()
-	obj = ForexProvider.objects.get(name="BookMyForex")
-	obj.usd = values[0]
-	obj.eur = values[1]
-	obj.gbp = values[2]
-	obj.aud = values[3]
-	obj.lastupdated = timezone.now()
-	obj.save()
+	if len(values)>0:
+		obj = ForexProvider.objects.get(name="BookMyForex")
+		obj.usd = values[0]
+		obj.eur = values[1]
+		obj.gbp = values[2]
+		obj.aud = values[3]
+		obj.lastupdated = timezone.now()
+		obj.save()
 
-	values = forex_provider_rates.scrape_thomascook()
-	obj = ForexProvider.objects.get(name="ThomasCook")
-	obj.usd = values[0]
-	obj.eur = values[1]
-	obj.gbp = values[2]
-	obj.aud = values[3]
-	obj.lastupdated = timezone.now()
-	obj.save()
+	if len(values)>0:
+		values = forex_provider_rates.scrape_thomascook()
+		obj = ForexProvider.objects.get(name="ThomasCook")
+		obj.usd = values[0]
+		obj.eur = values[1]
+		obj.gbp = values[2]
+		obj.aud = values[3]
+		obj.lastupdated = timezone.now()
+		obj.save()
 
-	values = forex_provider_rates.scrape_currencykart()
-	obj = ForexProvider.objects.get(name="CurrencyKart")
-	obj.usd = values[0]
-	obj.eur = values[1]
-	obj.gbp = values[2]
-	obj.aud = values[3]
-	obj.lastupdated = timezone.now()
-	obj.save()
+	if len(values)>0:
+		values = forex_provider_rates.scrape_currencykart()
+		obj = ForexProvider.objects.get(name="CurrencyKart")
+		obj.usd = values[0]
+		obj.eur = values[1]
+		obj.gbp = values[2]
+		obj.aud = values[3]
+		obj.lastupdated = timezone.now()
+		obj.save()
 
-	values = forex_provider_rates.scrape_zenithforex()
-	obj = ForexProvider.objects.get(name="Zenith")
-	obj.usd = values[0]
-	obj.eur = values[1]
-	obj.gbp = values[2]
-	obj.aud = values[3]
-	obj.lastupdated = timezone.now()
-	obj.save()
+	if len(values)>0:
+		values = forex_provider_rates.scrape_zenithforex()
+		obj = ForexProvider.objects.get(name="Zenith")
+		obj.usd = values[0]
+		obj.eur = values[1]
+		obj.gbp = values[2]
+		obj.aud = values[3]
+		obj.lastupdated = timezone.now()
+		obj.save()
 
