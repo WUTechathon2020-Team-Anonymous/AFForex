@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import ForexProvider
 from .forex_rates import ForexProviderRates
+from collections import OrderedDict
 
 # Create your views here.
 def home(request):
@@ -9,10 +10,20 @@ def home(request):
 
 def forex(request):
 	currency = str(request.POST['target_currency']).lower()
-	update_forex_rates()
+	# update_forex_rates()
+	
 	providers = ForexProvider.objects.values('name', 'site', currency, 'lastupdated').order_by(currency)
+	providers_list = []
+	for provider in providers:
+		provider_dict = OrderedDict()
+		provider_dict[provider['name']] = provider['site']
+		keys = list(provider.keys())[2:]
+		for key in keys:
+			provider_dict[key] = provider[key]
+		providers_list.append(provider_dict)
+
 	context = {
-		'providers': providers
+		'providers': providers_list
 	}
 	return render(request, 'ForexProvider/forex.html', context)
 
@@ -29,8 +40,8 @@ def update_forex_rates():
 		obj.lastupdated = timezone.now()
 		obj.save()
 
+	values = forex_provider_rates.scrape_thomascook()
 	if len(values)>0:
-		values = forex_provider_rates.scrape_thomascook()
 		obj = ForexProvider.objects.get(name="ThomasCook")
 		obj.usd = values[0]
 		obj.eur = values[1]
@@ -39,8 +50,8 @@ def update_forex_rates():
 		obj.lastupdated = timezone.now()
 		obj.save()
 
+	values = forex_provider_rates.scrape_currencykart()
 	if len(values)>0:
-		values = forex_provider_rates.scrape_currencykart()
 		obj = ForexProvider.objects.get(name="CurrencyKart")
 		obj.usd = values[0]
 		obj.eur = values[1]
@@ -49,8 +60,8 @@ def update_forex_rates():
 		obj.lastupdated = timezone.now()
 		obj.save()
 
+	values = forex_provider_rates.scrape_zenithforex()
 	if len(values)>0:
-		values = forex_provider_rates.scrape_zenithforex()
 		obj = ForexProvider.objects.get(name="Zenith")
 		obj.usd = values[0]
 		obj.eur = values[1]
