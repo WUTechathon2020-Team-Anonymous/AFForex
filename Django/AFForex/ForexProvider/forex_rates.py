@@ -4,6 +4,10 @@ import time
 import re
 
 
+currency_index = {'usd': 0, 'eur': 1, 'gbp': 2, 'aud': 3}
+output_format = {'buy_cash': 0, 'buy_card': 1, 'sell_cash': 2, 'sell_card': 3}
+
+
 class ForexProviderRates():
     def __init__(self):
         self.firefox_options = Options()
@@ -36,12 +40,15 @@ class ForexProviderRates():
 
         driver.close()
         if len(values_list) > 0:
-            usd = values_list[0].split(" ")[4]
-            eur = values_list[1].split(" ")[4]
-            gbp = values_list[2].split(" ")[4]
-            aud = values_list[3].split(" ")[4]
+            usd = values_list[0].lstrip().rstrip().split(" ")
+            usd = list(map(float, [usd[2], usd[0], usd[4], usd[5]]))
+            eur = values_list[1].lstrip().rstrip().split(" ")
+            eur = list(map(float, [eur[2], eur[0], eur[4], eur[5]]))
+            gbp = values_list[2].lstrip().rstrip().split(" ")
+            gbp = list(map(float, [gbp[2], gbp[0], gbp[4], gbp[5]]))
+            aud = values_list[3].lstrip().rstrip().split(" ")
+            aud = list(map(float, [aud[2], aud[0], aud[4], aud[5]]))
             values_list = [usd, eur, gbp, aud]
-            values_list = list(map(float, values_list))
         return values_list
 
     def scrape_thomascook(self):
@@ -57,12 +64,11 @@ class ForexProviderRates():
         driver.close()
         values_list = []
         if len(values) > 0:
-            usd = values[2]
-            eur = values[7]
-            gbp = values[12]
-            aud = values[47]
+            usd = list(map(float, [values[2], values[1], values[3], "-1"]))
+            eur = list(map(float, [values[7], values[6], values[8], "-1"]))
+            gbp = list(map(float, [values[12], values[11], values[13], "-1"]))
+            aud = list(map(float, [values[47], values[46], values[48], "-1"]))
             values_list = [usd, eur, gbp, aud]
-            values_list = list(map(float, values_list))
         return values_list
 
     def scrape_currencykart(self):
@@ -80,12 +86,15 @@ class ForexProviderRates():
 
         driver.close()
         if len(values_list) > 0:
-            usd = values_list[3].split(" ")[3]
-            eur = values_list[4].split(" ")[3]
-            gbp = values_list[5].split(" ")[3]
-            aud = values_list[7].split(" ")[3]
+            usd = values_list[3].lstrip().rstrip().split(" ")
+            usd = list(map(float, [usd[0], usd[2], usd[1], usd[3]]))
+            eur = values_list[4].lstrip().rstrip().split(" ")
+            eur = list(map(float, [eur[0], eur[2], eur[1], eur[3]]))
+            gbp = values_list[5].lstrip().rstrip().split(" ")
+            gbp = list(map(float, [gbp[0], gbp[2], gbp[1], gbp[3]]))
+            aud = values_list[7].lstrip().rstrip().split(" ")
+            aud = list(map(float, [aud[0], aud[2], aud[1], aud[3]]))
             values_list = [usd, eur, gbp, aud]
-            values_list = list(map(float, values_list))
         return values_list
 
     def scrape_zenithforex(self):
@@ -106,12 +115,15 @@ class ForexProviderRates():
 
         driver.close()
         if len(values_list) > 0:
-            usd = values_list[0].split(" ")[4]
-            eur = values_list[1].split(" ")[4]
-            gbp = values_list[2].split(" ")[4]
-            aud = values_list[4].split(" ")[4]
+            usd = values_list[0].lstrip().rstrip().split(" ")
+            usd = list(map(float, [usd[1], usd[2], usd[0], "-1"]))
+            eur = values_list[1].lstrip().rstrip().split(" ")
+            eur = list(map(float, [eur[1], eur[2], eur[0], "-1"]))
+            gbp = values_list[2].lstrip().rstrip().split(" ")
+            gbp = list(map(float, [gbp[1], gbp[2], gbp[0], "-1"]))
+            aud = values_list[4].lstrip().rstrip().split(" ")
+            aud = list(map(float, [aud[1], aud[2], aud[0], "-1"]))
             values_list = [usd, eur, gbp, aud]        
-            values_list = list(map(float, values_list))
         return values_list
 
 

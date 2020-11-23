@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import ForexProvider, Buy_Cash_Low,Buy_Cash_High
-from .forex_rates import ForexProviderRates
+from .forex_rates import ForexProviderRates, currency_index, output_format
 from collections import OrderedDict
 import time, threading,sys
 from datetime import date
@@ -15,15 +15,6 @@ def home(request):
 def forex(request):
 	currency = str(request.POST['target_currency']).lower()
 	# update_forex_rates()
-	providers = ForexProvider.objects.values('name', 'site', currency, 'lastupdated').order_by(currency)
-	providers_list = []
-	for provider in providers:
-		provider_dict = OrderedDict()
-		provider_dict[provider['name']] = provider['site']
-		keys = list(provider.keys())[2:]
-		for key in keys:
-			provider_dict[key] = provider[key]
-		providers_list.append(provider_dict)
 
 	global dbLock
 
@@ -32,6 +23,15 @@ def forex(request):
 	dbLock = True
 	providers = ForexProvider.objects.values('name', 'site', currency, 'lastupdated').order_by(currency)
 	dbLock = False
+
+	providers_list = []
+	for provider in providers:
+		provider_dict = OrderedDict()
+		provider_dict[provider['name']] = provider['site']
+		keys = list(provider.keys())[2:]
+		for key in keys:
+			provider_dict[key] = provider[key]
+		providers_list.append(provider_dict)
 
 	context = {
 		'providers': providers_list
@@ -183,4 +183,4 @@ def callback():
 	UpdateForexRates().start()
 	threading.Timer(300, callback).start()
 
-callback()
+# callback()
