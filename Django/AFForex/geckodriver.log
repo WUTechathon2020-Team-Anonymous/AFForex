@@ -1033,3 +1033,350 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1605944654415	Marionette	INFO	Listening on port 38475
 1605944654445	Marionette	WARN	TLS certificate errors will be ignored for this session
 1605944671698	Marionette	INFO	Stopped listening on port 38475
+1606217351082	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileMPcgTd"
+*** You are running in headless mode.
+1606217388004	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileP5TKGc"
+*** You are running in headless mode.
+1606217435611	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekaE6d3"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606217444626	Marionette	INFO	Listening on port 37579
+1606217444683	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606217476555	Marionette	INFO	Stopped listening on port 37579
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606217555575	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilecLMiaF"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606217563047	Marionette	INFO	Listening on port 39399
+1606217563126	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606217595434	Marionette	INFO	Stopped listening on port 39399
+1606217651242	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4nYpYW"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606217658744	Marionette	INFO	Listening on port 39741
+1606217658835	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606217687993	Marionette	INFO	Stopped listening on port 39741
+1606231106375	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXQpYJs"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606231112740	Marionette	INFO	Listening on port 45301
+1606231112827	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606231142350	Marionette	INFO	Stopped listening on port 45301
+1606231621257	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile710tsf"
+*** You are running in headless mode.
+Exiting due to channel error.
+Exiting due to channel error.
+1606231657305	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilecWqxC5"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606231663694	Marionette	INFO	Listening on port 40485
+1606231663749	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606231694018	Marionette	INFO	Stopped listening on port 40485
+1606232000674	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile36eDgw"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606232003924	Marionette	INFO	Listening on port 44289
+1606232004000	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606232037057	Marionette	INFO	Stopped listening on port 44289
+1606232038069	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileL4Af4p"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606232042530	Marionette	INFO	Listening on port 37377
+1606232042593	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.thomascook.in/js/lib/jquery-1-11-3.js, line 3: SecurityError: The operation is insecure.
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+1606232081017	Marionette	INFO	Stopped listening on port 37377
+1606232081782	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile7TP4o2"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606232085019	Marionette	INFO	Listening on port 35113
+1606232085103	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606232097168	Marionette	INFO	Stopped listening on port 35113
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x39013F,name=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xB50006,name=PWebSocket::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+1606232099818	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJDc7tp"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606232103181	Marionette	INFO	Listening on port 37611
+1606232103264	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606232125502	Marionette	INFO	Stopped listening on port 37611
+1606232238314	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileewL4M4"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606232241311	Marionette	INFO	Listening on port 41639
+1606232241334	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606232274271	Marionette	INFO	Stopped listening on port 41639
+1606232275642	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBqQ54D"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606232278586	Marionette	INFO	Listening on port 33503
+1606232278689	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.thomascook.in/js/lib/jquery-1-11-3.js, line 3: SecurityError: The operation is insecure.
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+1606232319670	Marionette	INFO	Stopped listening on port 33503
+1606232320271	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileLehqsC"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606232324181	Marionette	INFO	Listening on port 39011
+1606232324197	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606232339666	Marionette	INFO	Stopped listening on port 39011
+1606232341775	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileWLwX5v"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606232346066	Marionette	INFO	Listening on port 42137
+1606232346161	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606232368179	Marionette	INFO	Stopped listening on port 42137
+1606236468972	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJkPVrW"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606236472389	Marionette	INFO	Listening on port 46361
+1606236472398	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606236505560	Marionette	INFO	Stopped listening on port 46361
+1606236509956	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileIyyxPo"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606236515467	Marionette	INFO	Listening on port 33701
+1606236515493	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 697))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 351))
+JavaScript error: , line 0: SecurityError: The operation is insecure.
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+Exiting due to channel error.
+1606236557237	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileZuNLNz"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606236563049	Marionette	INFO	Listening on port 36507
+1606236563061	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606236594335	Marionette	INFO	Stopped listening on port 36507
+1606236595088	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileTIFSht"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606236599176	Marionette	INFO	Listening on port 44329
+1606236599207	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: SecurityError: The operation is insecure.
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+1606236645632	Marionette	INFO	Stopped listening on port 44329
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606236646326	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilelHyEqU"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606236649600	Marionette	INFO	Listening on port 34245
+1606236649652	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606236688134	Marionette	INFO	Stopped listening on port 34245
+1606236689007	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile5w3Sc2"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606236693555	Marionette	INFO	Listening on port 38521
+1606236693637	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606236725173	Marionette	INFO	Stopped listening on port 38521
+1606240221365	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileD8HVYu"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606240225323	Marionette	INFO	Listening on port 44869
+1606240225374	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606240257156	Marionette	INFO	Stopped listening on port 44869
+1606240258735	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileSBbcvG"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606240262711	Marionette	INFO	Listening on port 38535
+1606240262745	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.thomascook.in/js/lib/jquery-1-11-3.js, line 3: SecurityError: The operation is insecure.
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+1606240312078	Marionette	INFO	Stopped listening on port 38535
+1606240313409	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXmxHnD"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606240317289	Marionette	INFO	Listening on port 37785
+1606240317329	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606240342301	Marionette	INFO	Stopped listening on port 37785
+1606240342983	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile7vFYH4"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606240347591	Marionette	INFO	Listening on port 35663
+1606240347613	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 697))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 351))
+1606240381688	Marionette	INFO	Stopped listening on port 35663
+1606240570129	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilepmXnMZ"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606240574021	Marionette	INFO	Listening on port 34215
+1606240574060	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606240609185	Marionette	INFO	Stopped listening on port 34215
+1606240610510	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4p5x7Q"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606240614810	Marionette	INFO	Listening on port 45101
+1606240614846	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.thomascook.in/js/lib/jquery-1-11-3.js, line 3: SecurityError: The operation is insecure.
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+1606240657862	Marionette	INFO	Stopped listening on port 45101
+1606240658723	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileOr0NrM"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606240661991	Marionette	INFO	Listening on port 43847
+1606240662042	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606240683725	Marionette	INFO	Stopped listening on port 43847
+1606240684403	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileeP4knw"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606240687917	Marionette	INFO	Listening on port 41091
+1606240687926	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606240716464	Marionette	INFO	Stopped listening on port 41091
+1606241964390	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileVbyiy3"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606241968524	Marionette	INFO	Listening on port 37973
+1606241968616	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606242000340	Marionette	INFO	Stopped listening on port 37973
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x39013F,name=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xB50006,name=PWebSocket::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+1606242001434	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilevSmhJG"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242005132	Marionette	INFO	Listening on port 32895
+1606242005169	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.thomascook.in/js/lib/jquery-1-11-3.js, line 3: SecurityError: The operation is insecure.
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+1606242075663	Marionette	INFO	Stopped listening on port 32895
+1606242076628	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileqgVLbg"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242080650	Marionette	INFO	Listening on port 38377
+1606242080749	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606242111862	Marionette	INFO	Stopped listening on port 38377
+1606242112546	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilensxYCk"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242115802	Marionette	INFO	Listening on port 36339
+1606242115867	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606242140479	Marionette	INFO	Stopped listening on port 36339
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x1D0011,name=PBackgroundStorage::Msg_Observe) Channel error: cannot send/recv
+
+1606242522520	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFzq4Cq"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242525829	Marionette	INFO	Listening on port 45583
+1606242525847	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606242556608	Marionette	INFO	Stopped listening on port 45583
+1606242557462	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefITlu1"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242561222	Marionette	INFO	Listening on port 43835
+1606242561287	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: SecurityError: The operation is insecure.
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+1606242599976	Marionette	INFO	Stopped listening on port 43835
+1606242602172	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile8mfu6U"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242606647	Marionette	INFO	Listening on port 35899
+1606242606685	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606242627625	Marionette	INFO	Stopped listening on port 35899
+1606242628406	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4T16rp"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242631965	Marionette	INFO	Listening on port 43801
+1606242631996	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606242653920	Marionette	INFO	Stopped listening on port 43801
+1606242748379	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXE8pXl"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242753262	Marionette	INFO	Listening on port 45307
+1606242753311	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606242790008	Marionette	INFO	Stopped listening on port 45307
+1606242790587	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilebxyCWo"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242793802	Marionette	INFO	Listening on port 33131
+1606242793809	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 697))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 351))
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1606242902980	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6tYipb"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242907439	Marionette	INFO	Listening on port 33733
+1606242907509	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606242939237	Marionette	INFO	Stopped listening on port 33733
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606242940533	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekAevh7"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242945136	Marionette	INFO	Listening on port 40197
+1606242945166	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: SecurityError: The operation is insecure.
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+1606242992299	Marionette	INFO	Stopped listening on port 40197
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606242993970	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilenJNcAN"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606242996310	Marionette	INFO	Listening on port 46647
+1606242996437	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606243007047	Marionette	INFO	Stopped listening on port 46647
+1606243008243	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileB9Esx5"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606243012005	Marionette	INFO	Listening on port 39805
+1606243012067	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606243038614	Marionette	INFO	Stopped listening on port 39805

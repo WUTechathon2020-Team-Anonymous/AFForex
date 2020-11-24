@@ -5,7 +5,7 @@ import re
 
 
 currency_index = {'usd': 0, 'eur': 1, 'gbp': 2, 'aud': 3}
-output_format = {'buy_cash': 0, 'buy_card': 1, 'sell_cash': 2, 'sell_card': 3}
+payment_method_format = {'buy_cash': 0, 'buy_card': 1, 'sell_cash': 2, 'sell_card': 3}
 
 
 class ForexProviderRates():

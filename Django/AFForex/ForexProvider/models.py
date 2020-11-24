@@ -26,6 +26,16 @@ class Currency_Chart(models.Model):
 	# 	return currency
 
 
+class Currencies_List(models.Model):
+	usd = models.FloatField(default=-1.0)
+	eur = models.FloatField(default=-1.0)
+	gbp = models.FloatField(default=-1.0)
+	aud = models.FloatField(default=-1.0)
+
+	def __str__(self):
+		return f'{self.id}'
+
+
 class ForexProvider(models.Model):
 
 	name = models.CharField(max_length=100, null=False, default='ForexProvider')
@@ -36,28 +46,64 @@ class ForexProvider(models.Model):
 	aud = models.OneToOneField('Currency_Chart', on_delete=models.PROTECT, null=True, blank=True, related_name='aud')
 	lastupdated = models.DateTimeField(default=timezone.now)
 
-
 	def __str__(self):
 		return self.name
 
-class Buy_Cash_High(models.Model):
-	usd = models.FloatField()
-	eur = models.FloatField()
-	gbp = models.FloatField()
-	aud = models.FloatField()
-	date = models.DateField(default=date.today)
 
-	def __str__(self):
-		return str(self.date)
+
 
 class Buy_Cash_Low(models.Model):
-	usd = models.FloatField()
-	eur = models.FloatField()
-	gbp = models.FloatField()
-	aud = models.FloatField()
+	currencies = models.OneToOneField('Currencies_List', on_delete=models.PROTECT, null=True, blank=True, related_name='buy_cash_low')
 	date = models.DateField(default=date.today)
 
 	def __str__(self):
 		return str(self.date)
 
+class Buy_Cash_High(models.Model):
+	currencies = models.OneToOneField('Currencies_List', on_delete=models.PROTECT, null=True, blank=True, related_name='buy_cash_high')
+	date = models.DateField(default=date.today)
+
+	def __str__(self):
+		return str(self.date)
+
+class Buy_Card_Low(models.Model):
+	currencies = models.OneToOneField('Currencies_List', on_delete=models.PROTECT, null=True, blank=True, related_name='buy_card_low')
+	date = models.DateField(default=date.today)
+
+	def __str__(self):
+		return str(self.date)
+
+class Buy_Card_High(models.Model):
+	currencies = models.OneToOneField('Currencies_List', on_delete=models.PROTECT, null=True, blank=True, related_name='buy_card_high')
+	date = models.DateField(default=date.today)
+
+	def __str__(self):
+		return str(self.date)
 		
+class Sell_Cash_Low(models.Model):
+	currencies = models.OneToOneField('Currencies_List', on_delete=models.PROTECT, null=True, blank=True, related_name='sell_cash_low')
+	date = models.DateField(default=date.today)
+
+	def __str__(self):
+		return str(self.date)
+
+class Sell_Cash_High(models.Model):
+	currencies = models.OneToOneField('Currencies_List', on_delete=models.PROTECT, null=True, blank=True, related_name='sell_cash_high')
+	date = models.DateField(default=date.today)
+
+	def __str__(self):
+		return str(self.date)
+
+class Sell_Card_Low(models.Model):
+	currencies = models.OneToOneField('Currencies_List', on_delete=models.PROTECT, null=True, blank=True, related_name='sell_card_low')
+	date = models.DateField(default=date.today)
+
+	def __str__(self):
+		return str(self.date)
+
+class Sell_Card_High(models.Model):
+	currencies = models.OneToOneField('Currencies_List', on_delete=models.PROTECT, null=True, blank=True, related_name='sell_card_high')
+	date = models.DateField(default=date.today)
+
+	def __str__(self):
+		return str(self.date)

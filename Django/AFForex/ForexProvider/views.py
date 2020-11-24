@@ -1,16 +1,22 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import ForexProvider, Buy_Cash_Low,Buy_Cash_High
-from .forex_rates import ForexProviderRates, currency_index, output_format
 from collections import OrderedDict
 import time, threading,sys
 from datetime import date
+import numpy as np
+
+from .models import ForexProvider
+from .forex_rates import ForexProviderRates, currency_index, payment_method_format
+from .models import Buy_Cash_Low, Buy_Cash_High, Buy_Card_Low, Buy_Card_High
+from .models import Sell_Cash_Low, Sell_Cash_High, Sell_Card_Low, Sell_Card_High
+
 
 dbLock = False
 
 # Create your views here.
 def home(request):
 	return render(request, 'ForexProvider/home.html')
+
 
 def forex(request):
 	currency = str(request.POST['target_currency']).lower()
@@ -38,20 +44,25 @@ def forex(request):
 	}
 	return render(request, 'ForexProvider/forex.html', context)
 
+
+
+
+
 class UpdateForexRates(threading.Thread):
 	def __init__(self):
 		threading.Thread.__init__(self)
+		self.number_of_currencies = len(currency_index)
+		self.payment_options = len(payment_method_format)
+		self.min_value, self.max_value = -1.0, 100000.0
+		self.types = 2
+		self.min_max_table = np.array([[self.max_value, self.min_value] * self.payment_options] * self.number_of_currencies)
 
 	def run(self):
 		print("in forex rates")
 		print(time.ctime())
-		forex_provider_rates = ForexProviderRates()
-
-		min_USD, min_GBP, min_AUD, min_EUR = 100000,100000,100000,100000
-		max_USD, max_GBP, max_AUD, max_EUR = -1,-1,-1,-1
-		print(min_USD)
 
 		global dbLock
+		forex_provider_rates = ForexProviderRates()
 
 		values = forex_provider_rates.scrape_bookmyforex()
 		if len(values)>0:
@@ -59,25 +70,11 @@ class UpdateForexRates(threading.Thread):
 				pass
 			dbLock = True
 			obj = ForexProvider.objects.get(name="BookMyForex")
-			obj.usd = values[0]
-			obj.eur = values[1]
-			obj.gbp = values[2]
-			obj.aud = values[3]
+			set_values_for_forex_provider(obj, values)
 			obj.lastupdated = timezone.now()
 			obj.save()
 			dbLock = False
-
-			min_USD = min(values[0],min_USD)
-			min_EUR = min(values[1],min_EUR)
-			min_GBP = min(values[2],min_GBP)
-			min_AUD = min(values[3],min_AUD)
-
-			max_USD = max(values[0],max_USD)
-			max_EUR = max(values[1],max_EUR)
-			max_GBP = max(values[2],max_GBP)
-			max_AUD = max(values[3],max_AUD)
-
-			print(min_USD)
+			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 
 		values = forex_provider_rates.scrape_thomascook()
 		if len(values)>0:
@@ -85,24 +82,12 @@ class UpdateForexRates(threading.Thread):
 				pass
 			dbLock = True
 			obj = ForexProvider.objects.get(name="ThomasCook")
-			obj.usd = values[0]
-			obj.eur = values[1]
-			obj.gbp = values[2]
-			obj.aud = values[3]
-			
+			set_values_for_forex_provider(obj, values)
 			obj.lastupdated = timezone.now()
 			obj.save()
 			dbLock = False
-
-			min_USD = min(values[0],min_USD)
-			min_EUR = min(values[1],min_EUR)
-			min_GBP = min(values[2],min_GBP)
-			min_AUD = min(values[3],min_AUD)
-
-			max_USD = max(values[0],max_USD)
-			max_EUR = max(values[1],max_EUR)
-			max_GBP = max(values[2],max_GBP)
-			max_AUD = max(values[3],max_AUD)
+			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
+			
 
 		values = forex_provider_rates.scrape_currencykart()
 		if len(values)>0:
@@ -110,23 +95,12 @@ class UpdateForexRates(threading.Thread):
 				pass
 			dbLock = True
 			obj = ForexProvider.objects.get(name="CurrencyKart")
-			obj.usd = values[0]
-			obj.eur = values[1]
-			obj.gbp = values[2]
-			obj.aud = values[3]		
+			set_values_for_forex_provider(obj, values)
 			obj.lastupdated = timezone.now()
 			obj.save()
 			dbLock = False
+			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 
-			min_USD = min(values[0],min_USD)
-			min_EUR = min(values[1],min_EUR)
-			min_GBP = min(values[2],min_GBP)
-			min_AUD = min(values[3],min_AUD)
-
-			max_USD = max(values[0],max_USD)
-			max_EUR = max(values[1],max_EUR)
-			max_GBP = max(values[2],max_GBP)
-			max_AUD = max(values[3],max_AUD)
 
 		values = forex_provider_rates.scrape_zenithforex()
 		if len(values)>0:
@@ -134,53 +108,108 @@ class UpdateForexRates(threading.Thread):
 				pass
 			dbLock = True
 			obj = ForexProvider.objects.get(name="Zenith")
-			obj.usd = values[0]
-			obj.eur = values[1]
-			obj.gbp = values[2]
-			obj.aud = values[3]
+			set_values_for_forex_provider(obj, values)
 			obj.lastupdated = timezone.now()
 			obj.save()
 			dbLock = False
+			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 
-			min_USD = min(values[0],min_USD)
-			min_EUR = min(values[1],min_EUR)
-			min_GBP = min(values[2],min_GBP)
-			min_AUD = min(values[3],min_AUD)
 
-			max_USD = max(values[0],max_USD)
-			max_EUR = max(values[1],max_EUR)
-			max_GBP = max(values[2],max_GBP)
-			max_AUD = max(values[3],max_AUD)
-
-		BuyCashLow = Buy_Cash_Low.objects.filter(date = str(date.today()))
-		if len(BuyCashLow)>0:
-			BuyCashLow = Buy_Cash_Low.objects.get(date = str(date.today()))
-			BuyCashLow.usd = min(BuyCashLow.usd,min_USD)
-			BuyCashLow.eur = min(BuyCashLow.eur,min_EUR)
-			BuyCashLow.gbp = min(BuyCashLow.gbp,min_GBP)
-			BuyCashLow.aud = min(BuyCashLow.aud,min_AUD)
-			BuyCashLow.save()
-		else:
-			BuyCashLow = Buy_Cash_Low(usd = min_USD,eur = min_EUR,gbp = min_GBP,aud = min_AUD)
-			BuyCashLow.save()
-		
-
-		BuyCashHigh = Buy_Cash_High.objects.filter(date = str(date.today()))
-		if len(BuyCashHigh)>0:
-			BuyCashHigh = Buy_Cash_High.objects.get(date = str(date.today()))
-			BuyCashHigh.usd = max(BuyCashHigh.usd,max_USD)
-			BuyCashHigh.eur = max(BuyCashHigh.eur,max_EUR)
-			BuyCashHigh.gbp = max(BuyCashHigh.gbp,max_GBP)
-			BuyCashHigh.aud = max(BuyCashHigh.aud,max_AUD)
-			BuyCashHigh.save()
-		else:
-			BuyCashHigh = Buy_Cash_High(usd = max_USD,eur = max_EUR,gbp = max_GBP,aud = max_AUD )
-			BuyCashHigh.save()
+		set_values_for_min_max_tables(self.min_value, self.max_value, self.min_max_table)
 
 		print("\n\nEnd of Run\n\n")
 
+
+
+
+
+def set_values_for_forex_provider(provider, values):
+	currency_chart_fields = list(payment_method_format.keys())
+	currency_chart_number_of_fields = len(currency_chart_fields)
+
+	currency_values = values[currency_index['usd']]
+	for key, value in zip(currency_chart_fields, currency_values):
+		setattr(provider.usd, key, value)
+
+	currency_values = values[currency_index['eur']]
+	for key, value in zip(currency_chart_fields, currency_values):
+		setattr(provider.eur, key, value)
+
+	currency_values = values[currency_index['gbp']]
+	for key, value in zip(currency_chart_fields, currency_values):
+		setattr(provider.gbp, key, value)
+
+	currency_values = values[currency_index['aud']]
+	for key, value in zip(currency_chart_fields, currency_values):
+		setattr(provider.aud, key, value)
+
+
+def compute_min_max_table(rows, columns, values, table):
+	print(values)
+	print("-------")
+	print(table)
+	for i in range(rows):
+		for j in range(columns):
+			if values[i][j] != -1:
+				if values[i][j] < table[i][j*2]:
+					table[i][j*2] = values[i][j]
+				if values[i][j] > table[i][(j*2) + 1]:
+					table[i][(j*2) + 1] = values[i][j]
+
+
+def set_values_for_min_max_tables(min_value, max_value, table):
+	currencies_name = list(currency_index.keys())
+
+	BuyCashLow, created = Buy_Cash_Low.objects.get_or_create(date=date.today())
+	set_values_for_subtable(BuyCashLow, currencies_name, max_value, table[:, 0], -1)
+	BuyCashLow.save()
+
+	BuyCashHigh, created = Buy_Cash_High.objects.get_or_create(date=date.today())
+	set_values_for_subtable(BuyCashHigh, currencies_name, min_value, table[:, 1], 1)
+	BuyCashHigh.save()
+
+	BuyCardLow, created = Buy_Card_Low.objects.get_or_create(date=date.today())
+	set_values_for_subtable(BuyCardLow, currencies_name, max_value, table[:, 2], -1)
+	BuyCardLow.save()
+
+	BuyCardHigh, created = Buy_Card_High.objects.get_or_create(date=date.today())
+	set_values_for_subtable(BuyCardHigh, currencies_name, min_value, table[:, 3], 1)
+	BuyCardHigh.save()
+
+	SellCashLow, created = Buy_Cash_Low.objects.get_or_create(date=date.today())
+	set_values_for_subtable(SellCashLow, currencies_name, max_value, table[:, 4], -1)
+	SellCashLow.save()
+
+	SellCashHigh, created = Buy_Cash_High.objects.get_or_create(date=date.today())
+	set_values_for_subtable(SellCashHigh, currencies_name, min_value, table[:, 5], 1)
+	SellCashHigh.save()
+
+	SellCardLow, created = Buy_Card_Low.objects.get_or_create(date=date.today())
+	set_values_for_subtable(SellCardLow, currencies_name, max_value, table[:, 6], -1)
+	SellCardLow.save()
+
+	SellCardHigh, created = Buy_Card_High.objects.get_or_create(date=date.today())
+	set_values_for_subtable(SellCardHigh, currencies_name, min_value, table[:, 7], 1)
+	SellCardHigh.save()
+
+
+def set_values_for_subtable(object_name, currencies_name, alternate_value, given_nparray, operator):
+	print(object_name, currencies_name, alternate_value, given_nparray, operator)
+	current_values = np.array([getattr(object_name.currencies, cname) for cname in currencies_name])
+	current_values[current_values == -1] = alternate_value
+	if operator == 1:
+		compared_list = list([max(val1, val2) for val1, val2 in zip(given_nparray, current_values)])
+	else:
+		compared_list = list([min(val1, val2) for val1, val2 in zip(given_nparray, current_values)])
+	for key, value in zip(currencies_name, compared_list):
+		setattr(object_name.currencies, key, value)
+
+
+
+
+
 def callback():
 	UpdateForexRates().start()
-	threading.Timer(300, callback).start()
+	threading.Timer(900, callback).start()
 
-# callback()
+callback()
