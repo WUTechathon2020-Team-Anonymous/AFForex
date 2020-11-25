@@ -9,13 +9,17 @@ import { ServiceService } from './service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartsModule } from 'ng2-charts';
 import { MatSliderModule } from '@angular/material/slider';
+import { GraphsComponent } from './graphs/graphs.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ForexComponent
+    ForexComponent,
+    GraphsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +29,7 @@ import { MatSliderModule } from '@angular/material/slider';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    ChartsModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]
