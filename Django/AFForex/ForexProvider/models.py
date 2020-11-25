@@ -5,43 +5,35 @@ from datetime import date
 # Create your models here.
 
 class Currency_Chart(models.Model):
-	name = models.CharField(max_length=100, null=False, default='chart', primary_key=True)
+	name = models.CharField(max_length=100,unique=True, null=False, primary_key=True, default='chart')
 	buy_cash = models.FloatField(default=1)
 	buy_card = models.FloatField(default=1)
 	sell_cash = models.FloatField(default=1)
 	sell_card = models.FloatField(default=1)
 
-	def save(self, *args, **kwargs):
-		is_new = not self.pk
-		super().save(*args, **kwargs)
-		if is_new:
-			ForexProvider.objects.create(usd=self)
+	def __str__(self):
+		return self.name
+
+	# def save(self, *args, **kwargs):
+	# 	is_new = not self.pk
+	# 	super().save(*args, **kwargs)
+	# 	if is_new:
+	# 		ForexProvider.objects.create(usd=self)
 
 	# @classmethod
 	# def create(cls, name):
 	# 	currency = cls(name=name)
 	# 	return currency
 
-	def __str__(self):
-		return self.name
 
 class ForexProvider(models.Model):
 
 	name = models.CharField(max_length=100, null=False, default='ForexProvider')
 	site = models.URLField()
-	usd = models.FloatField()
-	eur = models.FloatField()
-	gbp = models.FloatField()
-	aud = models.FloatField()
-	# usd = Currency_Chart()
-	# eur = Currency_Chart()
-	# gbp = Currency_Chart()
-	# aud = Currency_Chart()
-	# art = Currency_Chart.create("art")
-	# usd = models.ForeignKey(Currency_Chart, on_delete=models.CASCADE, related_name='art')
-	# eur = models.ForeignKey(Currency_Chart, null=False, on_delete=models.CASCADE, related_name='eur')
-	# gbp = models.ForeignKey(Currency_Chart, null=False, on_delete=models.CASCADE, related_name='gbp')
-	# aud = models.ForeignKey(Currency_Chart, null=False, on_delete=models.CASCADE, related_name='aud')
+	usd = models.OneToOneField('Currency_Chart', on_delete=models.PROTECT, null=True, blank=True, related_name='usd')
+	eur = models.OneToOneField('Currency_Chart', on_delete=models.PROTECT, null=True, blank=True, related_name='eur')
+	gbp = models.OneToOneField('Currency_Chart', on_delete=models.PROTECT, null=True, blank=True, related_name='gbp')
+	aud = models.OneToOneField('Currency_Chart', on_delete=models.PROTECT, null=True, blank=True, related_name='aud')
 	lastupdated = models.DateTimeField(default=timezone.now)
 
 
