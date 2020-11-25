@@ -63,14 +63,14 @@ def forex(request):
 	while dbLock:
 		pass	
 	dbLock = True
-	providers = ForexProvider.objects.values('name', 'site', currency, 'lastupdated').order_by(currency)
+	providers = ForexProvider.objects.values(currency, 'name', 'site', 'lastupdated')
 	dbLock = False
 
 	providers_list = []
 	for provider in providers:
 		provider_dict = OrderedDict()
-		provider_dict[provider['name']] = provider['site']
-		keys = list(provider.keys())[2:]
+		provider_dict['currency'] = provider[currency]
+		keys = list(provider.keys())[1:]
 		for key in keys:
 			provider_dict[key] = provider[key]
 		providers_list.append(provider_dict)
