@@ -29,16 +29,16 @@ class ForexProvider(models.Model):
 
 	name = models.CharField(max_length=100, null=False, default='ForexProvider')
 	site = models.URLField()
-	# usd = models.FloatField()
-	# eur = models.FloatField()
-	# gbp = models.FloatField()
-	# aud = models.FloatField()
+	usd = models.FloatField()
+	eur = models.FloatField()
+	gbp = models.FloatField()
+	aud = models.FloatField()
 	# usd = Currency_Chart()
 	# eur = Currency_Chart()
 	# gbp = Currency_Chart()
 	# aud = Currency_Chart()
 	# art = Currency_Chart.create("art")
-	usd = models.ForeignKey(Currency_Chart, on_delete=models.CASCADE, related_name='art')
+	# usd = models.ForeignKey(Currency_Chart, on_delete=models.CASCADE, related_name='art')
 	# eur = models.ForeignKey(Currency_Chart, null=False, on_delete=models.CASCADE, related_name='eur')
 	# gbp = models.ForeignKey(Currency_Chart, null=False, on_delete=models.CASCADE, related_name='gbp')
 	# aud = models.ForeignKey(Currency_Chart, null=False, on_delete=models.CASCADE, related_name='aud')
@@ -67,5 +67,3 @@ class Buy_Cash_Low(models.Model):
 
 	def __str__(self):
 		return str(self.date)
-
-		
