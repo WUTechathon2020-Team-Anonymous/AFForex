@@ -9,6 +9,7 @@ from .models import ForexProvider
 from .forex_rates import ForexProviderRates, currency_index, payment_method_format
 from .models import Buy_Cash_Low, Buy_Cash_High, Buy_Card_Low, Buy_Card_High
 from .models import Sell_Cash_Low, Sell_Cash_High, Sell_Card_Low, Sell_Card_High
+from .live_rates import LiveRates
 
 
 dbLock = False
@@ -39,10 +40,20 @@ def forex(request):
 			provider_dict[key] = provider[key]
 		providers_list.append(provider_dict)
 
+
 	context = {
 		'providers': providers_list
 	}
 	return render(request, 'ForexProvider/forex.html', context)
+
+def live_rates(request):
+	currency_from = str(request.POST['currency_from']).lower()
+	currency_to = 'inr'#str(request.POST['currency_to']).lower()
+
+	live_rate = LiveRates()
+	value = live_rate.get_live_rates(currency_from, currency_to)
+	return render(request, 'ForexProvider/live_rates.html', {'value': value})
+
 
 
 
@@ -121,8 +132,6 @@ class UpdateForexRates(threading.Thread):
 
 
 
-
-
 def set_values_for_forex_provider(provider, values):
 	currency_chart_fields = list(payment_method_format.keys())
 	currency_chart_number_of_fields = len(currency_chart_fields)
@@ -176,19 +185,19 @@ def set_values_for_min_max_tables(min_value, max_value, table):
 	set_values_for_subtable(BuyCardHigh, currencies_name, min_value, table[:, 3], 1)
 	BuyCardHigh.save()
 
-	SellCashLow, created = Buy_Cash_Low.objects.get_or_create(date=date.today())
+	SellCashLow, created = Sell_Cash_Low.objects.get_or_create(date=date.today())
 	set_values_for_subtable(SellCashLow, currencies_name, max_value, table[:, 4], -1)
 	SellCashLow.save()
 
-	SellCashHigh, created = Buy_Cash_High.objects.get_or_create(date=date.today())
+	SellCashHigh, created = Sell_Cash_High.objects.get_or_create(date=date.today())
 	set_values_for_subtable(SellCashHigh, currencies_name, min_value, table[:, 5], 1)
 	SellCashHigh.save()
 
-	SellCardLow, created = Buy_Card_Low.objects.get_or_create(date=date.today())
+	SellCardLow, created = Sell_Card_Low.objects.get_or_create(date=date.today())
 	set_values_for_subtable(SellCardLow, currencies_name, max_value, table[:, 6], -1)
 	SellCardLow.save()
 
-	SellCardHigh, created = Buy_Card_High.objects.get_or_create(date=date.today())
+	SellCardHigh, created = Sell_Card_High.objects.get_or_create(date=date.today())
 	set_values_for_subtable(SellCardHigh, currencies_name, min_value, table[:, 7], 1)
 	SellCardHigh.save()
 
@@ -208,8 +217,18 @@ def set_values_for_subtable(object_name, currencies_name, alternate_value, given
 
 
 
+
+
+
+
+
+
 def callback():
-	UpdateForexRates().start()
+	while True:
+		updaterates_object = UpdateForexRates()
+		updaterates_object.start()
+		if updaterates_object.is_alive():
+			break
 	threading.Timer(900, callback).start()
 
-callback()
+# callback()

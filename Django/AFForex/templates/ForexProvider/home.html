@@ -18,3 +18,16 @@
   <br><br>
   <input type="submit" value="Submit">
 </form>
+
+<form action="live_rates/", method="POST">
+  {% csrf_token %}
+  <label for="currency">Choose a target currecy:</label>
+  <select name="currency_from" id="targetcurrency">
+    <option value="AUD">Australlian Dollar</option>
+    <option value="USD">US Dollar</option>
+    <option value="GBP">British Pound</option>
+    <option value="EUR">Euro</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Rate">
+</form>
