@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
-import { MatSliderModule } from '@angular/material/slider';
+import { MatSelectModule } from '@angular/material/select';
 import { GraphsComponent } from './graphs/graphs.component';
 import { ChatComponent } from './chat/chat.component';
 
@@ -30,7 +30,7 @@ import { ChatComponent } from './chat/chat.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSliderModule,
+    MatSelectModule,
     ChartsModule
   ],
   providers: [ServiceService],

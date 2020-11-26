@@ -11,6 +11,17 @@ export class ForexComponent implements OnInit {
 
   constructor(private service:ServiceService,private http:HttpClient) { }
 
+  source: string = "";
+  target: string = "";
+  // source_currencies: Currencies[] = [
+  //   {value: 'inr', viewValue: 'Indian Rupee',select : false},
+  //   {value: 'usd', viewValue: 'U.S. Dollar',select : false},
+  //   {value: 'gbp', viewValue: 'G.B. Pound',select : false},
+  //   {value: 'eur', viewValue: 'Euro',select : false},
+  //   {value: 'aud', viewValue: 'Australian Dollar',select : false}
+  // ];
+
+
   forexProvider:any = []
   forexValues:any = []
 
@@ -19,6 +30,10 @@ export class ForexComponent implements OnInit {
     this.showForex();
    }
 
+   selected(){
+     console.log(this.source);
+     console.log(this.target);
+   }
 
   showAllData(){
     this.service.getAll().subscribe(data =>{
