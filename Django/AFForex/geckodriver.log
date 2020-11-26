@@ -1532,6 +1532,7 @@ Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+<<<<<<< HEAD
 1606299136909	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekJtHa5"
 *** You are running in headless mode.
 Exiting due to channel error.
@@ -1595,3 +1596,5 @@ Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+=======
+>>>>>>> 85a324d553ac6bbae8354d32a2ee4d78441b8acd
