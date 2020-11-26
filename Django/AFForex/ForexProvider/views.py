@@ -63,24 +63,37 @@ def forex(request):
 	# currency = str(request.POST['target_currency']).lower()
 	# update_forex_rates()
 	loadedJsonData = json.loads(request.body.decode('utf-8'))
-	currency = loadedJsonData.get('target_currency')
+	currency_from = loadedJsonData.get('currency_from')
+	currency_to = loadedJsonData.get('currency_to')
 
 	global dbLock
 
 	while dbLock:
 		pass	
 	dbLock = True
-	providers = ForexProvider.objects.values(currency, 'name', 'site', 'lastupdated')
+	# providers = ForexProvider.objects.values('name', 'site', 'lastupdated')
+	providers_list = []
+	allProviders = ForexProvider.objects.all()
+	for provider in allProviders:
+		provider_dict = OrderedDict()
+		provider_dict['name'] = provider.name
+		provider_dict['site'] = provider.site
+		provider_dict['lastupdated'] = provider.lastupdated
+		input_currencies = [currency_from, currency_to]
+		currency_objects = list([getattr(provider, cname) for cname in input_currencies])
+		provider_dict['currency_from'] = currency_objects[0]
+		provider_dict['currency_to'] = currency_objects[1]
+		providers_list.append(provider_dict)
 	dbLock = False
 
-	providers_list = []
-	for provider in providers:
-		provider_dict = OrderedDict()
-		provider_dict['currency'] = provider[currency]
-		keys = list(provider.keys())[1:]
-		for key in keys:
-			provider_dict[key] = provider[key]
-		providers_list.append(provider_dict)
+	# providers_list = []
+	# for provider in providers:
+	# 	provider_dict = OrderedDict()
+	# 	provider_dict['currency'] = provider[currency]
+	# 	keys = list(provider.keys())[1:]
+	# 	for key in keys:
+	# 		provider_dict[key] = provider[key]
+	# 	providers_list.append(provider_dict)
 
 
 	context = {
