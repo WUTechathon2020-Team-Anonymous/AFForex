@@ -6,6 +6,7 @@ from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
 
 from .serializer import ForexPrviderSerializer,BuyCashHighSerializer,BuyCashLowSerializer
+from django.core import serializers
 
 from collections import OrderedDict
 import time, threading, sys, json
@@ -16,6 +17,7 @@ from .models import ForexProvider
 from .forex_rates import ForexProviderRates, currency_index, payment_method_format
 from .models import Buy_Cash_Low, Buy_Cash_High, Buy_Card_Low, Buy_Card_High
 from .models import Sell_Cash_Low, Sell_Cash_High, Sell_Card_Low, Sell_Card_High
+from .models import Daily_Currencies_Value
 from .live_rates import LiveRates
 from .chatbot_python_client import chat
 from .load_database import load_min_max_table, load_currency_history_table
@@ -65,6 +67,7 @@ def forex(request):
 	loadedJsonData = json.loads(request.body.decode('utf-8'))
 	currency_from = loadedJsonData.get('currency_from')
 	currency_to = loadedJsonData.get('currency_to')
+	payment_options = list(payment_method_format.keys())
 
 	global dbLock
 
@@ -81,8 +84,12 @@ def forex(request):
 		provider_dict['lastupdated'] = provider.lastupdated
 		input_currencies = [currency_from, currency_to]
 		currency_objects = list([getattr(provider, cname) for cname in input_currencies])
-		provider_dict['currency_from'] = currency_objects[0]
-		provider_dict['currency_to'] = currency_objects[1]
+		currency_from_values = list([getattr(currency_objects[0], opt) for opt in payment_options])
+		currency_to_values = list([getattr(currency_objects[1], opt) for opt in payment_options])
+		values = [(to_value / from_value) for from_value, to_value in zip(currency_from_values, currency_to_values)]
+		length = len(values)
+		for i in range(length):
+			provider_dict[payment_options[i]] = values[i]
 		providers_list.append(provider_dict)
 	dbLock = False
 
@@ -104,11 +111,6 @@ def forex(request):
 	# return render(request, 'ForexProvider/forex.html', context)
 
 def live_rates(request):
-	currency_from = str(request.POST['currency_from']).lower()
-	currency_to = str(request.POST['currency_to']).lower()
-
-	live_rate = LiveRates()
-	value = live_rate.get_live_rates(currency_from, currency_to)
 	return render(request, 'ForexProvider/live_rates.html', {'value': value})
 
 @csrf_exempt
@@ -191,9 +193,26 @@ class UpdateForexRates(threading.Thread):
 
 
 		set_values_for_min_max_tables(self.min_value, self.max_value, self.min_max_table)
+		update_currency_exchange_values()
 
 		print("\n\nEnd of Run\n\n")
 
+
+
+
+def update_currency_exchange_values():
+	currencies_name = list(currency_index.keys())
+	base_currency = 'inr'
+
+	live_rate = LiveRates()
+	values = [1]
+	for currency in currencies_name[1:]:
+		values.append(live_rate.get_live_rates(currency, base_currency))
+
+	obj, created = Daily_Currencies_Value.objects.get_or_create(date=date.today())
+	for key, value in zip(currencies_name, values):
+		setattr(obj.currencies, key, value)
+	obj.save()
 
 
 def set_values_for_forex_provider(provider, values):
