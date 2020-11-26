@@ -1,0 +1,57 @@
+<div class="container">
+    <p>forex works!</p>
+    {{ forexValues.providers }}
+    <!-- <li *ngFor = "let i in forexValues.providers">
+    {{ i.aud }}
+    <br>
+    {{ i.lastupdated }}
+    <hr>
+</li> -->
+    <table class="table table-striped table-dark table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Site
+                </th>
+                <th>
+                    USD
+                </th>
+                <th>
+                    EUR
+                </th>
+                <th>
+                    GBP
+                </th>
+                <th>
+                    AUD
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataItem of forexValues.providers">
+                <td>
+                    {{ dataItem.currency.buy_cash }}
+                </td>
+                <td>
+                    {{ dataItem.lastupdated }}
+                </td>
+                <!-- <td>
+                {{ dataItem.usd }}
+            </td>
+            <td>
+                {{ dataItem.eur }}
+            </td>
+            <td>
+                {{ dataItem.gbp }}
+            </td>
+            <td>
+                {{ dataItem.aud }}
+            </td> -->
+            </tr>
+        </tbody>
+
+    </table>
+</div>

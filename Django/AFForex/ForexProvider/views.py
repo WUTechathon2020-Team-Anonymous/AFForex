@@ -1,7 +1,14 @@
 from django.shortcuts import render
 from django.utils import timezone
+
+from django.views.decorators.csrf import csrf_exempt
+from django.http.response import JsonResponse
+from rest_framework.parsers import JSONParser
+
+from .serializer import ForexPrviderSerializer,BuyCashHighSerializer,BuyCashLowSerializer
+
 from collections import OrderedDict
-import time, threading,sys
+import time, threading, sys, json
 from datetime import date
 import numpy as np
 
@@ -12,30 +19,59 @@ from .models import Sell_Cash_Low, Sell_Cash_High, Sell_Card_Low, Sell_Card_High
 from .live_rates import LiveRates
 
 
+
 dbLock = False
 
 # Create your views here.
+@csrf_exempt
+def AllCurrencies(request):
+	if request.method == 'GET':
+		providers = ForexProvider.objects.all()
+		forex_provider_serializer = ForexPrviderSerializer(providers,many = True)
+		return JsonResponse(forex_provider_serializer.data, safe = False)
+	elif request.method == 'POST':
+		provider_data = JSONParser().parse(request)
+		forex_provider_serializer = ForexPrviderSerializer(data = provider_data)
+		if forex_provider_serializer.is_valid():
+			forex_provider_serializer.save()
+			return JsonResponse("Added!!",safe = False)
+		else:
+			return JsonResponse("Failed!",safe = False)
+	elif request.method == 'PUT':
+		provider_data = JSONParser().parse(request)
+		Forex_Provider = ForexProvider.objects.get(name = provider_data['name'])
+		forex_provider_serializer = ForexPrviderSerializer(Forex_Provider,data = provider_data)
+		if forex_provider_serializer.is_valid():
+			forex_provider_serializer.save()
+			return JsonResponse("Added PUT!!",safe = False)
+		else:
+			return JsonResponse("Failed PUT!!",safe = False)
+
+
 def home(request):
 	return render(request, 'ForexProvider/home.html')
 
-
+@csrf_exempt
 def forex(request):
-	currency = str(request.POST['target_currency']).lower()
+	print("hello")
+	# currency = str(request.POST['target_currency']).lower()
 	# update_forex_rates()
+	loadedJsonData = json.loads(request.body.decode('utf-8'))
+	currency = loadedJsonData.get('target_currency')
 
 	global dbLock
 
 	while dbLock:
 		pass	
 	dbLock = True
-	providers = ForexProvider.objects.values('name', 'site', currency, 'lastupdated').order_by(currency)
+	providers = ForexProvider.objects.values(currency, 'name', 'site', 'lastupdated')
 	dbLock = False
 
 	providers_list = []
 	for provider in providers:
 		provider_dict = OrderedDict()
-		provider_dict[provider['name']] = provider['site']
-		keys = list(provider.keys())[2:]
+		provider_dict['currency'] = provider[currency]
+		keys = list(provider.keys())[1:]
 		for key in keys:
 			provider_dict[key] = provider[key]
 		providers_list.append(provider_dict)
@@ -44,7 +80,9 @@ def forex(request):
 	context = {
 		'providers': providers_list
 	}
-	return render(request, 'ForexProvider/forex.html', context)
+	print(context)
+	return JsonResponse(context,safe=False)
+	# return render(request, 'ForexProvider/forex.html', context)
 
 def live_rates(request):
 	currency_from = str(request.POST['currency_from']).lower()

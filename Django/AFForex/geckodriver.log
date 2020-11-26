@@ -1033,6 +1033,279 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1605944654415	Marionette	INFO	Listening on port 38475
 1605944654445	Marionette	WARN	TLS certificate errors will be ignored for this session
 1605944671698	Marionette	INFO	Stopped listening on port 38475
+<<<<<<< HEAD
+1606192531488	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilewo4jXf"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606192559510	Marionette	INFO	Listening on port 42935
+1606192560341	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606192597156	Marionette	INFO	Stopped listening on port 42935
+1606222153208	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilexcmS11"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606222192536	Marionette	INFO	Listening on port 34399
+1606222193227	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 726))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 376))
+1606222454276	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePvPQPM"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606222484754	Marionette	INFO	Listening on port 46829
+1606222485120	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606222521276	Marionette	INFO	Stopped listening on port 46829
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606222754530	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilegkCVIS"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606222778672	Marionette	INFO	Listening on port 37151
+1606222779042	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606222802782	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1606222811086	Marionette	INFO	Stopped listening on port 37151
+1606223053310	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFUQwUm"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606223062691	Marionette	INFO	Listening on port 42143
+1606223062929	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606223093141	Marionette	INFO	Stopped listening on port 42143
+1606223353863	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4gXXzt"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606223358400	Marionette	INFO	Listening on port 46509
+1606223358647	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606223382116	Marionette	INFO	Stopped listening on port 46509
+1606223654009	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileF19J4F"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606223660108	Marionette	INFO	Listening on port 41021
+1606223660149	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606223716758	Marionette	INFO	Stopped listening on port 41021
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1606225016293	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilezveBOE"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606225033614	Marionette	INFO	Listening on port 42765
+1606225033958	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606225064471	Marionette	INFO	Stopped listening on port 42765
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x5B000D,name=PHttpBackgroundChannel::Msg___delete__) Channel error: cannot send/recv
+
+1606225317124	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileG5lLCo"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606225353467	Marionette	INFO	Listening on port 34493
+1606225354372	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606225387642	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1606225396864	Marionette	INFO	Stopped listening on port 34493
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xAD0001,name=PVsync::Msg_Notify) Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xAD0001,name=PVsync::Msg_Notify) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x5B0006,name=PHttpBackgroundChannel::Msg_OnStatus) Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xAD0001,name=PVsync::Msg_Notify) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x5B000D,name=PHttpBackgroundChannel::Msg___delete__) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xAD0001,name=PVsync::Msg_Notify) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xAD0001,name=PVsync::Msg_Notify) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xAD0001,name=PVsync::Msg_Notify) Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xD,name=PAPZ::Msg_Destroy) Channel error: cannot send/recv
+
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1606225532624	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilemOz0Dj"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606225554851	Marionette	INFO	Listening on port 42497
+1606225555340	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606225590494	Marionette	INFO	Stopped listening on port 42497
+1606225832336	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXaMmaH"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606225850131	Marionette	INFO	Listening on port 40045
+1606225850613	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606225883573	Marionette	INFO	Stopped listening on port 40045
+1606225887551	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileLY5PSL"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606225901821	Marionette	INFO	Listening on port 34971
+1606225901948	Marionette	WARN	TLS certificate errors will be ignored for this session
+=======
 1606217351082	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileMPcgTd"
 *** You are running in headless mode.
 1606217388004	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileP5TKGc"
@@ -1178,10 +1451,117 @@ JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.
 console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
 1606236599176	Marionette	INFO	Listening on port 44329
 1606236599207	Marionette	WARN	TLS certificate errors will be ignored for this session
+>>>>>>> latestdjango
 JavaScript error: , line 0: SecurityError: The operation is insecure.
 JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
 JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
 JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+<<<<<<< HEAD
+1606225939641	Marionette	INFO	Stopped listening on port 34971
+1606226131671	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilegyVikU"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606226177723	Marionette	INFO	Listening on port 44063
+1606226178969	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606226230617	Marionette	INFO	Stopped listening on port 44063
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x5B000D,name=PHttpBackgroundChannel::Msg___delete__) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x1F0011,name=PBackgroundStorage::Msg_Observe) Channel error: cannot send/recv
+
+1606226383413	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePOIUzU"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606226395911	Marionette	INFO	Listening on port 36415
+1606226396025	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606226423855	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1606226432517	Marionette	INFO	Stopped listening on port 36415
+1606226684841	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0ySAnx"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606226695173	Marionette	INFO	Listening on port 37229
+1606226695207	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606226719328	Marionette	INFO	Stopped listening on port 37229
+1606226983132	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0nBT8b"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606226986989	Marionette	INFO	Listening on port 42767
+1606226987063	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606227012724	Marionette	INFO	Stopped listening on port 42767
+1606227283618	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilery51Im"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606227288119	Marionette	INFO	Listening on port 46787
+1606227288154	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606227313552	Marionette	INFO	Stopped listening on port 46787
+1606227583598	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileHVJ1KE"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606227587813	Marionette	INFO	Listening on port 43945
+1606227587932	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606227613822	Marionette	INFO	Stopped listening on port 43945
+1606227884483	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4iblvA"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606227888670	Marionette	INFO	Listening on port 37873
+1606227888743	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606227913400	Marionette	INFO	Stopped listening on port 37873
+1606228185389	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile1CvHi1"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606228190388	Marionette	INFO	Listening on port 38329
+1606228190436	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606228216086	Marionette	INFO	Stopped listening on port 38329
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606228485374	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilelq2i6I"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606228489471	Marionette	INFO	Listening on port 41477
+1606228489513	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606228516229	Marionette	INFO	Stopped listening on port 41477
+1606228787159	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileABfYUQ"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606228791093	Marionette	INFO	Listening on port 34853
+1606228791193	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606228818470	Marionette	INFO	Stopped listening on port 34853
+1606229087141	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXk3Wl5"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606229091643	Marionette	INFO	Listening on port 40531
+1606229091683	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606229117223	Marionette	INFO	Stopped listening on port 40531
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+=======
 1606236645632	Marionette	INFO	Stopped listening on port 44329
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
@@ -1349,10 +1729,72 @@ console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Err
 1606242907509	Marionette	WARN	TLS certificate errors will be ignored for this session
 JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
 1606242939237	Marionette	INFO	Stopped listening on port 33733
+>>>>>>> latestdjango
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
 
+<<<<<<< HEAD
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606229386977	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileedjOE1"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606229390689	Marionette	INFO	Listening on port 33623
+1606229390811	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606229415759	Marionette	INFO	Stopped listening on port 33623
+1606229687273	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePj00nT"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606229691199	Marionette	INFO	Listening on port 32967
+1606229691310	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606229716899	Marionette	INFO	Stopped listening on port 32967
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606229987424	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileT91cpJ"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606229991301	Marionette	INFO	Listening on port 46403
+1606229991356	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 726))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 376))
+1606235965745	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiledn3EBR"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606235987311	Marionette	INFO	Listening on port 36293
+1606235987396	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 726))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 376))
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606236023510	Marionette	INFO	Stopped listening on port 36293
+1606236263877	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilethRUgd"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606236319728	Marionette	INFO	Listening on port 42623
+1606236320210	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606236382430	Marionette	INFO	Stopped listening on port 42623
+1606236562755	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileUPF4wm"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606236573395	Marionette	INFO	Listening on port 45445
+1606236573508	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606236606651	Marionette	INFO	Stopped listening on port 45445
+1606236865721	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileEdlGJo"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606236889900	Marionette	INFO	Listening on port 37991
+1606236890147	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606236940358	Marionette	INFO	Stopped listening on port 37991
+=======
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
 1606242940533	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekAevh7"
@@ -1529,6 +1971,7 @@ console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Err
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+>>>>>>> latestdjango
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.

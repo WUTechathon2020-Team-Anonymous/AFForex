@@ -31,6 +31,7 @@ def create_min_max_tables(sender, instance, **kwargs):
 		instance.currencies = Currencies_List.objects.create()
 	else:
 		instance.currencies.save()
+		
 
 # @receiver(post_save, sender=ForexProvider)
 # def save_profile(sender, instance, **kwargs):
