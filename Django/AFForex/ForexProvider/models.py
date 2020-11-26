@@ -27,6 +27,7 @@ class Currency_Chart(models.Model):
 
 
 class Currencies_List(models.Model):
+	inr = models.FloatField(default=-1.0)
 	usd = models.FloatField(default=-1.0)
 	eur = models.FloatField(default=-1.0)
 	gbp = models.FloatField(default=-1.0)
@@ -40,6 +41,7 @@ class ForexProvider(models.Model):
 
 	name = models.CharField(max_length=100, null=False, default='ForexProvider')
 	site = models.URLField()
+	inr = models.OneToOneField('Currency_Chart', on_delete=models.PROTECT, null=True, blank=True, related_name='inr')
 	usd = models.OneToOneField('Currency_Chart', on_delete=models.PROTECT, null=True, blank=True, related_name='usd')
 	eur = models.OneToOneField('Currency_Chart', on_delete=models.PROTECT, null=True, blank=True, related_name='eur')
 	gbp = models.OneToOneField('Currency_Chart', on_delete=models.PROTECT, null=True, blank=True, related_name='gbp')
@@ -50,6 +52,13 @@ class ForexProvider(models.Model):
 		return self.name
 
 
+
+class Daily_Currencies_Value(models.Model):
+	currencies = models.OneToOneField('Currencies_List', on_delete=models.PROTECT, null=True, blank=True, related_name='daily_value')
+	date = models.DateField(default=date.today)
+
+	def __str__(self):
+		return str(self.date)
 
 
 class Buy_Cash_Low(models.Model):

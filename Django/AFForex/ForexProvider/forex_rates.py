@@ -4,7 +4,7 @@ import time
 import re
 
 
-currency_index = {'usd': 0, 'eur': 1, 'gbp': 2, 'aud': 3}
+currency_index = {'inr': 0, 'usd': 1, 'eur': 2, 'gbp': 3, 'aud': 4}
 payment_method_format = {'buy_cash': 0, 'buy_card': 1, 'sell_cash': 2, 'sell_card': 3}
 
 
@@ -41,6 +41,7 @@ class ForexProviderRates():
 
             driver.close()
             if len(values_list) > 0:
+                inr = list([1.0] * len(payment_method_format))
                 usd = values_list[0].lstrip().rstrip().split(" ")
                 usd = list(map(float, [usd[2], usd[0], usd[4], usd[5]]))
                 eur = values_list[1].lstrip().rstrip().split(" ")
@@ -49,7 +50,7 @@ class ForexProviderRates():
                 gbp = list(map(float, [gbp[2], gbp[0], gbp[4], gbp[5]]))
                 aud = values_list[3].lstrip().rstrip().split(" ")
                 aud = list(map(float, [aud[2], aud[0], aud[4], aud[5]]))
-                values_list = [usd, eur, gbp, aud]
+                values_list = [inr, usd, eur, gbp, aud]
             return values_list
 
         except Exception:
@@ -70,11 +71,12 @@ class ForexProviderRates():
             driver.close()
             values_list = []
             if len(values) > 0:
+                inr = list([1.0] * len(payment_method_format))
                 usd = list(map(float, [values[2], values[1], values[3], "-1"]))
                 eur = list(map(float, [values[7], values[6], values[8], "-1"]))
                 gbp = list(map(float, [values[12], values[11], values[13], "-1"]))
                 aud = list(map(float, [values[47], values[46], values[48], "-1"]))
-                values_list = [usd, eur, gbp, aud]
+                values_list = [inr, usd, eur, gbp, aud]
             return values_list
 
         except Exception:
@@ -97,6 +99,7 @@ class ForexProviderRates():
 
             driver.close()
             if len(values_list) > 0:
+                inr = list([1.0] * len(payment_method_format))
                 usd = values_list[3].lstrip().rstrip().split(" ")
                 usd = list(map(float, [usd[0], usd[2], usd[1], usd[3]]))
                 eur = values_list[4].lstrip().rstrip().split(" ")
@@ -105,7 +108,7 @@ class ForexProviderRates():
                 gbp = list(map(float, [gbp[0], gbp[2], gbp[1], gbp[3]]))
                 aud = values_list[7].lstrip().rstrip().split(" ")
                 aud = list(map(float, [aud[0], aud[2], aud[1], aud[3]]))
-                values_list = [usd, eur, gbp, aud]
+                values_list = [inr, usd, eur, gbp, aud]
             return values_list
 
         except Exception:
@@ -131,6 +134,7 @@ class ForexProviderRates():
 
             driver.close()
             if len(values_list) > 0:
+                inr = list([1.0] * len(payment_method_format))
                 usd = values_list[0].lstrip().rstrip().split(" ")
                 usd = list(map(float, [usd[1], usd[2], usd[0], "-1"]))
                 eur = values_list[1].lstrip().rstrip().split(" ")
@@ -139,7 +143,7 @@ class ForexProviderRates():
                 gbp = list(map(float, [gbp[1], gbp[2], gbp[0], "-1"]))
                 aud = values_list[4].lstrip().rstrip().split(" ")
                 aud = list(map(float, [aud[1], aud[2], aud[0], "-1"]))
-                values_list = [usd, eur, gbp, aud]        
+                values_list = [inr, usd, eur, gbp, aud]        
             return values_list
 
         except Exception:

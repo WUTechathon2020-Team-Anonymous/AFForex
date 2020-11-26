@@ -17,7 +17,8 @@ from .forex_rates import ForexProviderRates, currency_index, payment_method_form
 from .models import Buy_Cash_Low, Buy_Cash_High, Buy_Card_Low, Buy_Card_High
 from .models import Sell_Cash_Low, Sell_Cash_High, Sell_Card_Low, Sell_Card_High
 from .live_rates import LiveRates
-
+from .chatbot_python_client import chat
+from .load_database import load_min_max_table, load_currency_history_table
 
 
 dbLock = False
@@ -49,6 +50,11 @@ def AllCurrencies(request):
 
 
 def home(request):
+	# print("*************")
+	# currencies_name = list(currency_index.keys())
+	# load_min_max_table(currencies_name)
+	# load_currency_history_table(currencies_name)
+	# print("*************")
 	return render(request, 'ForexProvider/home.html')
 
 @csrf_exempt
@@ -86,14 +92,19 @@ def forex(request):
 
 def live_rates(request):
 	currency_from = str(request.POST['currency_from']).lower()
-	currency_to = 'inr'#str(request.POST['currency_to']).lower()
+	currency_to = str(request.POST['currency_to']).lower()
 
 	live_rate = LiveRates()
 	value = live_rate.get_live_rates(currency_from, currency_to)
 	return render(request, 'ForexProvider/live_rates.html', {'value': value})
 
-
-
+@csrf_exempt
+def chatbot(request):
+	message = str(request.POST['msg'])
+	print(message)
+	paramsPresent, amount, curr_from, curr_to, fulfillment_text,action = chat(message)
+	context = {'response': fulfillment_text}
+	return JsonResponse(context, safe=False)
 
 
 
@@ -175,6 +186,10 @@ class UpdateForexRates(threading.Thread):
 def set_values_for_forex_provider(provider, values):
 	currency_chart_fields = list(payment_method_format.keys())
 	currency_chart_number_of_fields = len(currency_chart_fields)
+
+	currency_values = values[currency_index['inr']]
+	for key, value in zip(currency_chart_fields, currency_values):
+		setattr(provider.inr, key, value)
 
 	currency_values = values[currency_index['usd']]
 	for key, value in zip(currency_chart_fields, currency_values):
@@ -269,6 +284,6 @@ def callback():
 		updaterates_object.start()
 		if updaterates_object.is_alive():
 			break
-	threading.Timer(900, callback).start()
+	threading.Timer(600, callback).start()
 
 # callback()

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "afforex-gsnn",
+  "private_key_id": "07fc68776210f525a508d78653fe2651c7db04fa",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDRuI5q7bPBwyv3\nf3zomFOcT+pyAoRrUD0+2fIDauxLA/xgeuHNMBowKPCH2Uz7WsBu/nuaHReJ7CPs\nJQlAsIKE5xmAlB45tTxhGf7rFNcAneV7QxOLxuv8pb4qV+geKPk5Qu4nF0OM1CUK\n+MOlqYZOHK5q9Nj/GZ9h4cFUdoVCUnoEbN7f0IDschiFblPMMS43JmCh6DUDRGAc\ny6p/sVN1KFcCZhqL83bfAi7cvfUsmldOdzg7cMYOvNsyWN9B+FEnk4iv0uUlu5hS\nAlnQOeeX5QIU6hE8yqDQyZEXwJydNu2hqpWbDefeVk9wpISfhzowaW8UGl7e6S5K\nrYfpG3vlAgMBAAECggEABb0vQob/iWDJ/M4eO4Q4R4Raq0+H0vhMEMKokDDhHKVp\nht9d+1ONZ+jQOjt3Uz/hbmLO5uxUYafBYjvaOWJgfqVkqdjZIeWkgcNoby5FEEUs\ni4y4myAwrYYrQnU2NXsUD4iAxAzrgjinodmltaHCZTP85Dw6jZ05zWp+3qJBVSD9\ncCvvhQddlrIOM2oZMCnSpeiWk8yakhemDipfHX3Lt6b2A46ZSqq1Pg87uuvxx1HX\nY1o7bLE2LxpxVwglj+PelkUnhpqa5BvPvp5JcbIr2ENODnaYZfFHPY2ufIzRHtR9\nRUvVuMvUCYr9lia8ITO4C7UQHik8x6k7XGGpicBMYQKBgQD741ExndW+mvhhVhwP\nuHWPuitaP4+rwhjfcWW5otfwg6MRWSjNsSF733QbfEYT7pAdkajM5fDSKPt858eF\nb69dBMpII7sj7eA2Td81PVtAGwah7FRC0R2KdkzR/Z/3FJ2q67jbCKatzdahQWDK\nxBlKYRPXuDnGg1RZrnIrTbL+RQKBgQDVJQQSqKoszwWz+jakZGHAtrwHdXvAyi9f\nDlSX0lu3yd8nTTNsxI1bcX3/2KhoeojVd7mG9DM7wo0ATDwqrMPP6xruVlS1EPpR\n4lmXRW0noks7ZjeXUN/dxHli5FEz8pgs9f9h0FXP3oKu8ATFdtD6UvPueOkoBURX\n6C4xc3+xIQKBgH/He0LuTKYau3G1WxrmekzlJmTr5Zg+KJwBTJd1cpICVVDRqA9g\nkhni62WeD3bBCL7XS4hWBWq3e4yLj/2zAITxjyQ1bBP38kvaCSda7tWAYEb4Om6C\n4reA98t3HBUdkjZIykfjBZsZ1o2LOuzhueqvgH9oZ3a63Kl6A1TQX8L5AoGAdId2\nQJVB5JmSbqFfemT/JJNDHXjXncFsQLXe/doeFs8hV6VXdiHHfrT/w/65o9VKNhrs\nraGY2RU2bXFAe7xUmbnZ0XAVg6Cymk372T41vTN3mhP6VJn8qoweKTjWRGZfWEVt\nyBZUs/7cx7OliCe7fQAZKMml/yFSChWAG70flMECgYAA4ErcKme734l+vECW0TUc\ndA8zugwNXChW2T41DyVsfUjAC1asxh/pkUSU1apwlVQT8lZbUy8/PjJ1Qmy7fsgv\nM+B+rh22HjosH0fdp0uxtmz9gtu77R77s9+LZwck1pPoa/KHZRRCE5FuTAfwZKAp\nuL8l9kNvBOZKMWu7GHC7mg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-integration@afforex-gsnn.iam.gserviceaccount.com",
+  "client_id": "106334536316498653465",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-integration%40afforex-gsnn.iam.gserviceaccount.com"
+}
