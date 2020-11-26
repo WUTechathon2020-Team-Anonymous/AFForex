@@ -18,4 +18,8 @@ readonly ApiUrl = 'http://127.0.0.1:8000';
   getForex(val:any){
   	return this.http.post(this.ApiUrl + '/forex/', val);
   }
+
+  getChat(val:any){
+    return this.http.post(this.ApiUrl + '/chatbot/',val);
+  }
 }
