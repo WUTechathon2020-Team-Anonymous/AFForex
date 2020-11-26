@@ -34,6 +34,7 @@ export class ForexComponent implements OnInit {
       console.log("test123");
       this.service.getForex(val).subscribe(data =>{
         this.forexValues = data;
+        console.log(this.forexValues);
       });
   }
 }

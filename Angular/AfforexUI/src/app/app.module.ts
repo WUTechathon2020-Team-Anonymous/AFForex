@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
 import { MatSliderModule } from '@angular/material/slider';
 import { GraphsComponent } from './graphs/graphs.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -19,7 +20,8 @@ import { GraphsComponent } from './graphs/graphs.component';
   declarations: [
     AppComponent,
     ForexComponent,
-    GraphsComponent
+    GraphsComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,

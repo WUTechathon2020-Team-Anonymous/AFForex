@@ -1,0 +1,14 @@
+<div class="boxed">
+    <div>
+        <div id="chatbox">
+            <p class="botText">
+                <span>Hi! I'm Afforex your personal ChatBot </span>
+            </p>
+        </div>
+        <div id="userInput">
+            <input id="textInput" type="text" [(ngModel)]="msg" (keyup.enter)="onKey($event)" name="msg" placeholder="Message" />
+            <button (click)="submit($event)">click</button>
+        </div>
+        {{ msg }}
+    </div>
+</div>

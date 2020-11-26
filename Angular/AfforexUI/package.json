@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~11.0.1",
     "@angular/platform-browser-dynamic": "~11.0.1",
     "@angular/router": "~11.0.1",
+    "angular-ai-chat-bot": "^1.1.1",
     "angular-google-charts": "^1.1.6",
     "chart.js": "^2.9.4",
     "ng2-charts": "^2.4.2",
