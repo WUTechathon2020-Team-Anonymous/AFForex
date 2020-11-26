@@ -1975,3 +1975,152 @@ Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+<<<<<<< HEAD
+1606299136909	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekJtHa5"
+*** You are running in headless mode.
+Exiting due to channel error.
+Exiting due to channel error.
+1606299140653	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileLaIs5h"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606299144791	Marionette	INFO	Listening on port 41399
+1606299144878	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1606315553052	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletIuZGy"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606315558737	Marionette	INFO	Listening on port 40787
+1606315558821	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1606315623318	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePxX19V"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606315628111	Marionette	INFO	Listening on port 38091
+1606315628153	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1606315646322	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileO0loNT"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606315649841	Marionette	INFO	Listening on port 35967
+1606315649851	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1606315665700	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFaZPUi"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606315669405	Marionette	INFO	Listening on port 33893
+1606315669441	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1606315683914	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileLdgmXk"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606315687947	Marionette	INFO	Listening on port 34271
+1606315688066	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+=======
+>>>>>>> 85a324d553ac6bbae8354d32a2ee4d78441b8acd
+1606374317310	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiledagm6I"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606374323065	Marionette	INFO	Listening on port 41237
+1606374323297	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1606374347356	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4AwKzI"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606374353502	Marionette	INFO	Listening on port 35989
+1606374353595	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+Exiting due to channel error.
+1606376522472	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileAIGyJ6"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606376526010	Marionette	INFO	Listening on port 44637
+1606376526092	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1606377604856	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileOPB7Ad"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606377609944	Marionette	INFO	Listening on port 41411
+1606377609987	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1606380778580	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6WAJcU"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606380782949	Marionette	INFO	Listening on port 42211
+1606380782979	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606380810333	Marionette	INFO	Stopped listening on port 42211
+1606380868668	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileKt3gzC"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606380873484	Marionette	INFO	Listening on port 34987
+1606380873494	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bookmyforex.com/assets/www/js/jquery-1.10.2.min.js?v=20190201, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1606380899037	Marionette	INFO	Stopped listening on port 34987
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606380899937	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0lsxet"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606380904307	Marionette	INFO	Listening on port 39741
+1606380904361	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: TypeError: document.getElementById(...) is null
+JavaScript error: , line 0: SecurityError: The operation is insecure.
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+JavaScript error: https://www.thomascook.in/foreign-exchange/forex-rate-card line 7837 > injectedScript, line 1: ReferenceError: smartech is not defined
+1606380942894	Marionette	INFO	Stopped listening on port 39741
+1606380943767	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilehavdA8"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606380946961	Marionette	INFO	Listening on port 42635
+1606380946985	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606380984095	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "--disable-notifications" "--disable-infobars" "--disable-extensions" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileDS1Lp7"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1606380987746	Marionette	INFO	Listening on port 41249
+1606380987819	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606381013662	Marionette	INFO	Stopped listening on port 41249
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
