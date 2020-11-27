@@ -2,7 +2,7 @@
     <div style="margin-top: 10px;">
         <mat-form-field appearance="fill" style="margin-right: 5px;">
             <mat-label>Source Currencies</mat-label>
-            <mat-select [(ngModel)]="source" name="source">
+            <mat-select [(ngModel)]="source" name="source" value="source">
                 <mat-option *ngFor="let food of source_currencies" [value]="food.value">
                     {{food.viewValue}}
                 </mat-option>
@@ -11,7 +11,7 @@
         <mat-icon>trending_flat</mat-icon>
         <mat-form-field appearance="fill" style="margin-left: 5px;">
             <mat-label>Target Currencies</mat-label>
-            <mat-select [(ngModel)]="target" name="source">
+            <mat-select [(ngModel)]="target" name="target" value="target">
                 <mat-option *ngFor="let food of source_currencies" [value]="food.value">
                     {{food.viewValue}}
                 </mat-option>

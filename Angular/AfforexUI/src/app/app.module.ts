@@ -21,7 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 
-
+import { DatePipe } from '@angular/common';
 
 import { GraphsComponent } from './graphs/graphs.component';
 import { ChatComponent } from './chat/chat.component';
@@ -60,7 +60,7 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
     MatButtonModule,
     MatInputModule
   ],
-  providers: [ServiceService,DataService],
+  providers: [ServiceService,DataService,DatePipe],
   bootstrap: [AppComponent],
   entryComponents: [ModalComponent]
 

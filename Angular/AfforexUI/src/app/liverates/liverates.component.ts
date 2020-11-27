@@ -44,6 +44,8 @@ export class LiveratesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.source = this.dataservice.currency_from;
+    this.target = this.dataservice.currency_to;
     this.getLiveCurrency();
   }
 

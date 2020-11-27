@@ -4,6 +4,8 @@ import { DataService } from 'src/app/data.service';
 import { HttpClient } from '@angular/common/http';
 import {Sort} from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { DatePipe } from '@angular/common';
+
 
 
 export interface Forex {
@@ -23,11 +25,12 @@ export interface Currencies{
 @Component({
   selector: 'app-forex',
   templateUrl: './forex.component.html',
-  styleUrls: ['./forex.component.css']
+  styleUrls: ['./forex.component.css'],
+  providers: [DatePipe]
 })
 export class ForexComponent implements OnInit {
 
-  constructor(private service:ServiceService,  private dataservice: DataService , private http:HttpClient) { }
+  constructor(private service:ServiceService,  private dataservice: DataService , private http:HttpClient,private datePipe: DatePipe) { }
 
   listData = [];
   displayedColoums : string[] = ['buy_card','buy_cash', 'lastupdated', 'name', 'sell_card', 'sell_cash','site'];
@@ -51,12 +54,14 @@ export class ForexComponent implements OnInit {
     {value: 'aud', viewValue: 'Australian Dollar'}
   ];
 
-  
+  lastUpdated:any;
   forexProvider:any = []
   forexValues:any = []
 
   ngOnInit(): void {
     this.showAllData();
+    this.source = this.dataservice.currency_from;
+    this.target = this.dataservice.currency_to;
    }
 
 
@@ -131,6 +136,7 @@ export class ForexComponent implements OnInit {
         console.log(this.forex);
         this.sortedData = this.forex.slice();
         console.log(this.sortedData);
+        this.lastUpdated = new Date(this.forex[3].lastupdated).toLocaleString("en-US", {timeZone: "Asia/Kolkata"})
         // this.forexValues.providers[0].currency_from = JSON.parse(this.forexValues.providers[0].currency_from);
         // console.log(this.forexValues.providers[0].currency_from);
         // console.log(this.forexValues.providers[0].currency_from[0].fields.buy_cash);
