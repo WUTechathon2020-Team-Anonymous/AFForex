@@ -1,85 +1,69 @@
 <div class="container">
-    <p>forex works!</p>
-    {{ forexValues.providers }}
-    <!-- <li *ngFor = "let i in forexValues.providers">
-    {{ i.aud }}
-    <br>
-    {{ i.lastupdated }}
-    <hr>
-</li> -->
-    <form>
-        <!-- <mat-form-field appearance="fill">
-            <mat-label>Source currency</mat-label>
-            <mat-select [(ngModel)]="selectedValue" name="source_currency">
-                <mat-option *ngFor="let c of source_currencies" [value]="c.value" *ngIf="!c.selected">
-                    {{c.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field> -->
-        <p>Source Currency</p>
-        <select name="source_currency" [(ngModel)]="source" id="source_currencies">
-            <option value="inr">INR</option>
-            <option value="usd">USD</option>
-            <option value="eur">EUR</option>
-            <option value="aud">AUD</option>
-          </select>
-        <p> source currency: {{source}} </p>
-
-        <p>target Currency</p>
-        <select name="source_currency" [(ngModel)]="target" id="source_currencies">
-            <option value="inr">INR</option>
-            <option value="usd">USD</option>
-            <option value="eur">EUR</option>
-            <option value="aud">AUD</option>
-          </select>
-        <p> target currency: {{target}} </p>
-        <input type="submit" (click)="selected()" value="Submit">
+    <form class="d-flex justify-content-center">
+        <div style="margin-top: 10px;">
+            <mat-form-field appearance="fill" style="margin-right: 5px;">
+                <mat-label>Source Currencies</mat-label>
+                <mat-select [(ngModel)]="source" name="source">
+                    <mat-option *ngFor="let food of source_currencies" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-icon>trending_flat</mat-icon>
+            <mat-form-field appearance="fill" style="margin-left: 5px;">
+                <mat-label>Target Currencies</mat-label>
+                <mat-select [(ngModel)]="target" name="source">
+                    <mat-option *ngFor="let food of source_currencies" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <input type="submit" (click)="selected()" value="Submit" style="margin-left: 5px;">
     </form>
-    <!-- <table class="table table-striped table-dark table-bordered">
+
+    <table matSort (matSortChange)="sortData($event)" class="table table-striped table-dark table-bordered">
         <thead>
             <tr>
-                <th>
+                <th mat-sort-header="name">
                     Name
                 </th>
-                <th>
-                    Site
+                <th mat-sort-header="buy_cash">
+                    buy cash
                 </th>
-                <th>
-                    USD
+                <th mat-sort-header="buy_card">
+                    buy card
                 </th>
-                <th>
-                    EUR
+                <th mat-sort-header="sell_cash">
+                    sell cash
                 </th>
-                <th>
-                    GBP
-                </th>
-                <th>
-                    AUD
+                <th mat-sort-header="sell_card">
+                    sell card
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let dataItem of forexValues.providers">
+            <tr *ngFor="let dataItem of sortedData">
                 <td>
-                    {{ dataItem.currency }}
+                    <a href="{{dataItem.site}}"> {{ dataItem.name }}</a>
                 </td>
                 <td>
-                    {{ dataItem.lastupdated }}
+                    {{ dataItem.buy_card }}
                 </td>
                 <td>
-                {{ dataItem.usd }}
-            </td>
-            <td>
-                {{ dataItem.eur }}
-            </td>
-            <td>
-                {{ dataItem.gbp }}
-            </td>
-            <td>
-                {{ dataItem.aud }}
-            </td>
+                    {{ dataItem.buy_cash }}
+                </td>
+                <td>
+                    {{ dataItem.sell_cash }}
+                </td>
+                <td *ngIf="dataItem.sell_card != -1">
+                    {{ dataItem.sell_card }}
+                </td>
+                <td *ngIf="dataItem.sell_card == -1">
+                    --
+                </td>
             </tr>
         </tbody>
 
-    </table> -->
+    </table>
 </div>

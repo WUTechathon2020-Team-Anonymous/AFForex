@@ -11,6 +11,12 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
 import { MatSelectModule } from '@angular/material/select';
+import {MatSortModule,Sort} from '@angular/material/sort';
+import { MatCellDef, MatTableDataSource,MatTableModule } from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+
+
 import { GraphsComponent } from './graphs/graphs.component';
 import { ChatComponent } from './chat/chat.component';
 
@@ -31,7 +37,11 @@ import { ChatComponent } from './chat/chat.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSelectModule,
-    ChartsModule
+    ChartsModule,
+    MatSortModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]
