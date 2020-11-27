@@ -33,6 +33,8 @@ export class ForexComponent implements OnInit {
   displayedColoums : string[] = ['buy_card','buy_cash', 'lastupdated', 'name', 'sell_card', 'sell_cash','site'];
 
   visible: boolean = false;
+  buyVisiblity: string = "visible";
+  sellVisiblity: string = "hidden";
 
   forex: Forex[] = [];
 
@@ -55,6 +57,24 @@ export class ForexComponent implements OnInit {
 
   ngOnInit(): void {
     this.showAllData();
+   }
+
+
+   BuySelect(){
+    this.buyVisiblity = "visible";
+    this.sellVisiblity = "hidden";
+    //  const x = document.getElementById("tableBuy");
+    //  const y = document.getElementById("tableSell");
+    //   y.style.visibility = "hidden";
+    //   x.style.visibility = "visible";
+    } 
+   SellSelect(){
+    this.buyVisiblity = "hidden";
+    this.sellVisiblity = "visible";
+    // var x = document.getElementById("tableBuy");
+    // var y = document.getElementById("tableSell");
+    // x?.style.visibility = "hidden";
+    // y?.style.visibility = "visible";
    }
 
    sortData(sort: Sort) {

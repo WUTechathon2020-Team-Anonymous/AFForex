@@ -39,13 +39,15 @@ export class ChatComponent implements OnInit {
       console.log(this.reply);
     });
 
-    var userHtml = '<p style="color: rgb(218, 17, 17);font-family: monospace;font-size: 17px;text-align: right;line-height: 30px;"><span>' + this.msg + "</span></p>";
+    var userHtml = '<div style = "display: flex;justify-content: flex-end;align-items: center;"><span style = "display: flex;justify-content: flex-end;margin: 0.75rem;padding: 0.5rem;background-color: #ddd;border-radius: 25px;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);word-break: break-all;">' + this.msg + '</span></div>';
     var node = document.createElement("p");
     // node.className = "botText"
     node.innerHTML = userHtml;
     this.msg = "";
-    document.getElementById("chatbox")?.appendChild(node);
-    document.getElementById("userInput")?.scrollIntoView({ block:"start",behavior:"smooth" });
+    // const chatArea = document.querySelector('.chat-area');
+    // chatArea.insertAdjacentHTML("beforeend", userHtml);
+    document.getElementById("test2")?.appendChild(node);
+    // document.getElementById("userInput")?.scrollIntoView({ block:"start",behavior:"smooth" });
     this.addreply();
   }
 
