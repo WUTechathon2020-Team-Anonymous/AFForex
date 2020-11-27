@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
+from django.core.mail import send_mail
 
 from django.views.decorators.csrf import csrf_exempt
 from django.http.response import JsonResponse
@@ -10,7 +11,7 @@ from django.core import serializers
 
 from collections import OrderedDict
 import time, threading, sys, json
-from datetime import date
+from datetime import date, timedelta
 import numpy as np
 
 from .models import ForexProvider
@@ -52,11 +53,12 @@ def AllCurrencies(request):
 
 
 def home(request):
-	# print("*************")
+	print("*************")
+	send_mail('Subject here', 'Here is the message.', 'wutechathon@gmail.com', ['gautamgodbole99@gmail.com', 'saumitrasapre69@gmail.com'])
 	# currencies_name = list(currency_index.keys())
 	# load_min_max_table(currencies_name)
 	# load_currency_history_table(currencies_name)
-	# print("*************")
+	print("*************")
 	return render(request, 'ForexProvider/home.html')
 
 @csrf_exempt
@@ -86,7 +88,7 @@ def forex(request):
 		currency_objects = list([getattr(provider, cname) for cname in input_currencies])
 		currency_from_values = list([getattr(currency_objects[0], opt) for opt in payment_options])
 		currency_to_values = list([getattr(currency_objects[1], opt) for opt in payment_options])
-		values = [(to_value / from_value) for from_value, to_value in zip(currency_from_values, currency_to_values)]
+		values = [(from_value / to_value) for from_value, to_value in zip(currency_from_values, currency_to_values)]
 		length = len(values)
 		for i in range(length):
 			provider_dict[payment_options[i]] = values[i]
@@ -110,16 +112,128 @@ def forex(request):
 	return JsonResponse(context,safe=False)
 	# return render(request, 'ForexProvider/forex.html', context)
 
+@csrf_exempt
 def live_rates(request):
-	return render(request, 'ForexProvider/live_rates.html', {'value': value})
+	loadedJsonData = json.loads(request.body.decode('utf-8'))
+	currency_from = loadedJsonData.get('currency_from')
+	currency_to = loadedJsonData.get('currency_to')
+	input_currencies = [currency_from, currency_to]
+	number_of_days = 7
+
+	values = []
+	dates = []
+
+	global dbLock
+
+	while dbLock:
+		pass
+
+	dbLock = True
+	for i in range(number_of_days):
+		try:
+			obj = Daily_Currencies_Value.objects.get(date=date.today() - timedelta(days=i))
+			dates.insert(0, str(obj.date))
+			from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
+			values.insert(0, (from_value / to_value))
+		except Exception:
+			pass
+	dbLock = False
+
+	context = {
+		'currency_value': values,
+		'dates': dates
+	}
+	return JsonResponse(context, safe=False)
+	# return render(request, 'ForexProvider/live_rates.html', {'value': value})
 
 @csrf_exempt
 def chatbot(request):
-	message = str(request.POST['msg'])
+	loadedJsonData = json.loads(request.body.decode('utf-8'))
+	message = loadedJsonData.get('msg')
+	# message = str(request.POST['msg'])
 	print(message)
 	paramsPresent, amount, curr_from, curr_to, fulfillment_text,action = chat(message)
 	context = {'response': fulfillment_text}
 	return JsonResponse(context, safe=False)
+
+@csrf_exempt
+def min_max_values(request):
+	loadedJsonData = json.loads(request.body.decode('utf-8'))
+	currency_from = loadedJsonData.get('currency_from')
+	currency_to = loadedJsonData.get('currency_to')
+	input_currencies = [currency_from, currency_to]
+	payment_options = list(payment_method_format.keys())
+	types = ['min', 'max']
+	payment_options_length = len(payment_options)
+	types_length = len(types)
+
+	number_of_days = 7
+	categories = payment_options_length * types_length
+	labels = []
+	dates = []
+	history = [[[0] * number_of_days] * categories]
+
+	global dbLock
+
+	for i in range(payment_options_length):
+		for j in range(types_length):
+			labels[(i*types_length) + j] = payment_options[i] + '_' + types[j]
+
+	for i in range(number_of_days):
+		dates.insert(0, str(date.today() - timedelta(days=i)))
+
+	while dbLock:
+		pass
+
+	dbLock = True
+	for i in range(number_of_days):
+		try:
+			obj = Buy_Cash_Low.objects.get(date=date.today() - timedelta(days=i))
+			from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
+			history[0][number_of_days-1-i] = (from_value/to_value)
+
+			obj = Buy_Cash_High.objects.get(date=date.today() - timedelta(days=i))
+			from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
+			history[1][number_of_days-1-i] = (from_value/to_value)
+
+			obj = Buy_Card_Low.objects.get(date=date.today() - timedelta(days=i))
+			from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
+			history[2][number_of_days-1-i] = (from_value/to_value)
+
+			obj = Buy_Card_High.objects.get(date=date.today() - timedelta(days=i))
+			from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
+			history[3][number_of_days-1-i] = (from_value/to_value)
+
+			obj = Sell_Cash_Low.objects.get(date=date.today() - timedelta(days=i))
+			from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
+			history[4][number_of_days-1-i] = (from_value/to_value)
+
+			obj = Sell_Cash_High.objects.get(date=date.today() - timedelta(days=i))
+			from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
+			history[5][number_of_days-1-i] = (from_value/to_value)
+
+			obj = Sell_Card_Low.objects.get(date=date.today() - timedelta(days=i))
+			from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
+			history[6][number_of_days-1-i] = (from_value/to_value)
+
+			obj = Sell_Card_High.objects.get(date=date.today() - timedelta(days=i))
+			from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
+			history[7][number_of_days-1-i] = (from_value/to_value)
+
+		except Exception:
+			pass
+
+	dbLock = False
+
+	context = {}
+	for i in range(categories):
+		context[labels[i]] = history[i]
+	context['dates'] = dates
+	return JsonResponse(context, safe=False)
+
+
+
+
 
 
 
