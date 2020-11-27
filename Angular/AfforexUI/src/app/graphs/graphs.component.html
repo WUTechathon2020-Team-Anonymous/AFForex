@@ -1,4 +1,44 @@
-<div class="chart-wrapper">
-    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="'line'" [plugins]="lineChartPlugins">
-    </canvas>
-</div>
+<!-- <table>
+    <tr>
+        <td>
+            <div style="display: block">
+                <canvas #buyCard>{{ chart }}</canvas>
+            </div>
+        </td>
+        <td>
+            <div style="display: block">
+                <canvas #buyCash>{{ chart }}</canvas>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div style="display: block">
+                <canvas #sellCard>{{ chart }}</canvas>
+            </div>
+        </td>
+        <td>
+            <div style="display: block">
+                <canvas #sellCash>{{ chart }}</canvas>
+            </div>
+        </td>
+    </tr>
+</table> -->
+
+    <div style="display: block">
+        <canvas #buyCard>{{ chart_buyCard }}</canvas>
+    </div>
+    <div style="display: block">
+        <canvas #buyCash>{{ chart_buyCash }}</canvas>
+    </div>
+    <div style="display: block">
+        <canvas #sellCard>{{ chart_sellCard }}</canvas>
+    </div>
+    <div style="display: block">
+        <canvas #sellCash>{{ chart_sellCash }}</canvas>
+    </div>
+
+    <div style="display: block">
+        <canvas #LiveCurrency>{{ LiveCurrency }}</canvas>
+    </div>
+

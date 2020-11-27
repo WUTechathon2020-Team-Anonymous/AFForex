@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/service.service';
+import { DataService } from 'src/app/data.service';
 import { HttpClient } from '@angular/common/http';
 import {Sort} from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
@@ -26,11 +27,12 @@ export interface Currencies{
 })
 export class ForexComponent implements OnInit {
 
-  constructor(private service:ServiceService,private http:HttpClient) { }
+  constructor(private service:ServiceService,  private dataservice: DataService , private http:HttpClient) { }
 
   listData = [];
   displayedColoums : string[] = ['buy_card','buy_cash', 'lastupdated', 'name', 'sell_card', 'sell_cash','site'];
 
+  visible: boolean = false;
 
   forex: Forex[] = [];
 
@@ -81,6 +83,10 @@ export class ForexComponent implements OnInit {
    selected(){
      console.log(this.source);
      console.log(this.target);
+     this.dataservice.currency_from = this.source;
+     this.dataservice.currency_to = this.target;
+     this.dataservice.display = true;
+      this.visible = true;
      this.showForex();
    }
 
@@ -93,8 +99,8 @@ export class ForexComponent implements OnInit {
 
   showForex(){
       var val = {
-          currency_from : this.source,
-          currency_to : this.target
+          currency_from : this.dataservice.currency_from,
+          currency_to : this.dataservice.currency_to
       };
       console.log("test123");
       this.service.getForex(val).subscribe(data =>{

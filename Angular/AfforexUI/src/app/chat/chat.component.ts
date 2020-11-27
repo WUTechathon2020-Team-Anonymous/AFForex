@@ -36,7 +36,7 @@ export class ChatComponent implements OnInit {
     console.log("test123");
     this.service.getChat(val).subscribe(data =>{
       this.reply = data;
-      console.log(this.replymsg);
+      console.log(this.reply);
     });
 
     var userHtml = '<p style="color: rgb(218, 17, 17);font-family: monospace;font-size: 17px;text-align: right;line-height: 30px;"><span>' + this.msg + "</span></p>";
@@ -52,6 +52,7 @@ export class ChatComponent implements OnInit {
   addreply(){
     setTimeout(
       () =>{
+      this.replymsg = this.reply.response;
       var botHtml = '<p style = "color: white;font-family: monospace;font-size: 17px;text-align: left;line-height: 30px;"><span style = "background-color: #4169e1;padding: 10px;border-radius: 2px;">' + this.replymsg + "</span></p>";
       var node = document.createElement("p");
       // node.className = "botText"

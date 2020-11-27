@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ForexComponent } from './forex/forex.component';
 import { ServiceService } from './service.service';
+import { DataService } from './data.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
 
 import { GraphsComponent } from './graphs/graphs.component';
 import { ChatComponent } from './chat/chat.component';
+import { from } from 'rxjs';
 
 
 
@@ -43,7 +45,7 @@ import { ChatComponent } from './chat/chat.component';
     MatFormFieldModule,
     MatIconModule
   ],
-  providers: [ServiceService],
+  providers: [ServiceService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

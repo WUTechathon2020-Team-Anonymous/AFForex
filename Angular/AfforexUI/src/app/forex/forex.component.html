@@ -21,49 +21,52 @@
         </div>
         <input type="submit" (click)="selected()" value="Submit" style="margin-left: 5px;">
     </form>
+    <div *ngIf="visible">
+        <table matSort (matSortChange)="sortData($event)" class="table table-striped table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th mat-sort-header="name">
+                        Name
+                    </th>
+                    <th mat-sort-header="buy_cash">
+                        buy cash
+                    </th>
+                    <th mat-sort-header="buy_card">
+                        buy card
+                    </th>
+                    <th mat-sort-header="sell_cash">
+                        sell cash
+                    </th>
+                    <th mat-sort-header="sell_card">
+                        sell card
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dataItem of sortedData">
+                    <td>
+                        <a href="{{dataItem.site}}"> {{ dataItem.name }}</a>
+                    </td>
+                    <td>
+                        {{ dataItem.buy_card }}
+                    </td>
+                    <td>
+                        {{ dataItem.buy_cash }}
+                    </td>
+                    <td>
+                        {{ dataItem.sell_cash }}
+                    </td>
+                    <td *ngIf="dataItem.sell_card != -1">
+                        {{ dataItem.sell_card }}
+                    </td>
+                    <td *ngIf="dataItem.sell_card == -1">
+                        --
+                    </td>
+                </tr>
+            </tbody>
 
-    <table matSort (matSortChange)="sortData($event)" class="table table-striped table-dark table-bordered">
-        <thead>
-            <tr>
-                <th mat-sort-header="name">
-                    Name
-                </th>
-                <th mat-sort-header="buy_cash">
-                    buy cash
-                </th>
-                <th mat-sort-header="buy_card">
-                    buy card
-                </th>
-                <th mat-sort-header="sell_cash">
-                    sell cash
-                </th>
-                <th mat-sort-header="sell_card">
-                    sell card
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let dataItem of sortedData">
-                <td>
-                    <a href="{{dataItem.site}}"> {{ dataItem.name }}</a>
-                </td>
-                <td>
-                    {{ dataItem.buy_card }}
-                </td>
-                <td>
-                    {{ dataItem.buy_cash }}
-                </td>
-                <td>
-                    {{ dataItem.sell_cash }}
-                </td>
-                <td *ngIf="dataItem.sell_card != -1">
-                    {{ dataItem.sell_card }}
-                </td>
-                <td *ngIf="dataItem.sell_card == -1">
-                    --
-                </td>
-            </tr>
-        </tbody>
+        </table>
 
-    </table>
+        <app-graphs></app-graphs>
+    </div>
 </div>
