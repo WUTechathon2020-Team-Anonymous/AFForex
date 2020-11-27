@@ -17,10 +17,19 @@ import { MatCellDef, MatTableDataSource,MatTableModule } from '@angular/material
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+
+
 
 import { GraphsComponent } from './graphs/graphs.component';
 import { ChatComponent } from './chat/chat.component';
 import { from } from 'rxjs';
+import { LiveratesComponent } from './liverates/liverates.component';
+import { ModalComponent } from './modal/modal.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
+
 
 
 
@@ -30,6 +39,9 @@ import { from } from 'rxjs';
     ForexComponent,
     GraphsComponent,
     ChatComponent,
+    LiveratesComponent,
+    ModalComponent,
+    SubscribeComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +55,14 @@ import { from } from 'rxjs';
     MatSortModule,
     MatTableModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [ServiceService,DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
+
 })
 export class AppModule { }

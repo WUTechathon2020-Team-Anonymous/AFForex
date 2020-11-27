@@ -1,14 +1,15 @@
 <img src="/assets/demo2.png" alt="Paris" width="80" height="80" class="center">
 
-<h1>AFForex</h1>
+<h1><b>AFForex</b></h1>
+<h3 class="d-flex justify-content-center"><i>Affordable Forex!</i></h3>
 <div class="warpper">
     <input class="radio" id="one" name="group" type="radio" checked>
     <input class="radio" id="two" name="group" type="radio">
     <input class="radio" id="three" name="group" type="radio">
     <div class="tabs" style="margin-bottom: 15px;">
         <label class="tab" id="one-tab" routerLink="forexProvider" for="one">Forex Conversion</label>
-        <label class="tab" id="two-tab" routerLink="graphs" for="two">Graphs</label>
-        <label class="tab" id="three-tab" for="three">Prerequisites</label>
+        <label class="tab" id="two-tab" routerLink="graphs" for="two">Live Currency/ Predictions</label>
+        <label class="tab" id="three-tab" routerLink="subscribe" for="three">Subscribe</label>
     </div>
 </div>
 <router-outlet></router-outlet>
@@ -34,8 +35,10 @@
     </nav> -->
 
     <!-- <router-outlet></router-outlet> -->
-
-    <button (click)="toggle()">Chat</button>
+    <button class="chat-btn" (click)="toggle()"> 
+        <i class="material-icons"> comment </i>
+    </button>
+    <!-- <button (click)="toggle()">Chat</button> -->
     <div *ngIf="isVisible">
         <app-chat></app-chat>
     </div>

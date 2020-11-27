@@ -54,7 +54,7 @@ def AllCurrencies(request):
 
 def home(request):
 	print("*************")
-	send_mail('Subject here', 'Here is the message.', 'wutechathon@gmail.com', ['gautamgodbole99@gmail.com', 'saumitrasapre69@gmail.com'])
+	# send_mail('Subject here', 'Here is the message.', 'wutechathon@gmail.com', ['gautamgodbole99@gmail.com', 'saumitrasapre69@gmail.com'])
 	# currencies_name = list(currency_index.keys())
 	# load_min_max_table(currencies_name)
 	# load_currency_history_table(currencies_name)
@@ -88,7 +88,7 @@ def forex(request):
 		currency_objects = list([getattr(provider, cname) for cname in input_currencies])
 		currency_from_values = list([getattr(currency_objects[0], opt) for opt in payment_options])
 		currency_to_values = list([getattr(currency_objects[1], opt) for opt in payment_options])
-		values = [(from_value / to_value) for from_value, to_value in zip(currency_from_values, currency_to_values)]
+		values = [(from_value / to_value) if from_value != -1 and to_value != -1 else -1 for from_value, to_value in zip(currency_from_values, currency_to_values)]
 		length = len(values)
 		for i in range(length):
 			provider_dict[payment_options[i]] = values[i]
@@ -171,13 +171,13 @@ def min_max_values(request):
 	categories = payment_options_length * types_length
 	labels = []
 	dates = []
-	history = [[[0] * number_of_days] * categories]
+	history = np.zeros([categories, number_of_days])
 
 	global dbLock
 
 	for i in range(payment_options_length):
 		for j in range(types_length):
-			labels[(i*types_length) + j] = payment_options[i] + '_' + types[j]
+			labels.append(payment_options[i] + '_' + types[j])
 
 	for i in range(number_of_days):
 		dates.insert(0, str(date.today() - timedelta(days=i)))
@@ -227,7 +227,7 @@ def min_max_values(request):
 
 	context = {}
 	for i in range(categories):
-		context[labels[i]] = history[i]
+		context[labels[i]] = list(history[i])
 	context['dates'] = dates
 	return JsonResponse(context, safe=False)
 

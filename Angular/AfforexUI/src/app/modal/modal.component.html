@@ -1,0 +1,16 @@
+<div id="modal-content-wrapper">
+    <header id="modal-header">
+        <h1 id="modal-title">Subscribe to daily forex reports!</h1>
+    </header>
+    <mat-form-field>
+        <mat-label>Email Address</mat-label>
+        <input matInput [(ngModel)]="email" placeholder="Email">
+      </mat-form-field>    
+    <section id="modal-body">
+        <p>You'll get daily updates on forex rate changes.</p>
+    </section>
+    <footer id="modal-footer">
+        <button mat-raised-button id="modal-action-button" (click)="actionFunction()">Subscribe</button>
+        <button mat-raised-button id="modal-cancel-button" (click)="closeModal()">No Thanks</button>
+    </footer>
+</div>

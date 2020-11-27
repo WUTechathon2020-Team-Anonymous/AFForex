@@ -1,0 +1,28 @@
+<form class="d-flex justify-content-center">
+    <div style="margin-top: 10px;">
+        <mat-form-field appearance="fill" style="margin-right: 5px;">
+            <mat-label>Source Currencies</mat-label>
+            <mat-select [(ngModel)]="source" name="source">
+                <mat-option *ngFor="let food of source_currencies" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-icon>trending_flat</mat-icon>
+        <mat-form-field appearance="fill" style="margin-left: 5px;">
+            <mat-label>Target Currencies</mat-label>
+            <mat-select [(ngModel)]="target" name="source">
+                <mat-option *ngFor="let food of source_currencies" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <button (click)="selected()" style="margin-left: 5px;"class="submit-btn"><mat-icon>send</mat-icon></button>
+    <!-- <input type="submit" (click)="selected()" value="Submit" class="btn btn-light" style="margin-left: 5px;"> -->
+</form>
+
+
+<div style="display: block">
+    <canvas #LiveCurrency>{{ LiveCurrency }}</canvas>
+</div>

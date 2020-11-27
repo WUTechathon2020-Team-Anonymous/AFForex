@@ -25,26 +25,24 @@ export class GraphsComponent implements OnInit {
   chart_sellCard :any;
   LiveCurrency :any;
 
-  visibility :boolean = false;
+  visibility :boolean = true;
 
   ngOnInit(): void {
     console.log(this.dataservice.display);
-    if(this.dataservice.display){
-      this.visibility = true;
+      // this.visibility = true;
       this.getMinMaxData();
       this.dataservice.display = false;
-    }
-    else{
-      this.visibility = false;
-      this.getLiveCurrency();
-    }
   }
 
   constructor(private service:ServiceService, private dataservice: DataService , private http:HttpClient) { }
 
+  close(){
+    this.visibility=false;
+  }
   graphData : any ;
   liveCurrencyData : any;  
   getLiveCurrency(){
+    document.getElementById("btn1")?.click;
     var val = {
       currency_from : this.dataservice.currency_from,
       currency_to : this.dataservice.currency_to
@@ -59,8 +57,8 @@ export class GraphsComponent implements OnInit {
               datasets: [
                 {
                   data: this.liveCurrencyData.currency_value,
-                  label: "max",
-                  borderColor: '#3cba9f',
+                  label: "currency",
+                  borderColor: 'rgb(255,0,0)',
                   fill: false
                 }
               ]
@@ -78,7 +76,7 @@ export class GraphsComponent implements OnInit {
                 }],
               },
               title: {
-                text: 'BUY CARD',
+                text: 'LIVE CURRENCY',
                 display: true
               }
             }
@@ -103,13 +101,13 @@ export class GraphsComponent implements OnInit {
                 {
                   data: this.graphData.buy_card_max,
                   label: "max",
-                  borderColor: '#3cba9f',
+                  borderColor: 'rgb(255,0,0)',
                   fill: false
                 },
                 {
                   data: this.graphData.buy_card_min,
                   label: "min",
-                  borderColor: 'rgb(135,206,235)',
+                  borderColor: 'rgb(0,255,0)',
                   fill:false
                 }
               ]
@@ -141,13 +139,13 @@ export class GraphsComponent implements OnInit {
                       {
                         data: this.graphData.buy_cash_max,
                         label: "max",
-                        borderColor: '#3cba9f',
+                        borderColor: 'rgb(255,0,0)',
                         fill: false
                       },
                       {
                         data: this.graphData.buy_cash_min,
                         label: "min",
-                        borderColor: 'rgb(135,206,235)',
+                        borderColor: 'rgb(0,255,0)',
                         fill:false
                       }
                     ]
@@ -179,13 +177,13 @@ export class GraphsComponent implements OnInit {
                             {
                               data: this.graphData.sell_card_max,
                               label: "max",
-                              borderColor: '#3cba9f',
+                              borderColor: 'rgb(255,0,0)',
                               fill: false
                             },
                             {
                               data: this.graphData.sell_card_min,
                               label: "min",
-                              borderColor: 'rgb(135,206,235)',
+                              borderColor: 'rgb(0,255,0)',
                               fill:false
                             }
                           ]
@@ -216,13 +214,13 @@ export class GraphsComponent implements OnInit {
                                   {
                                     data: this.graphData.sell_cash_max,
                                     label: "max",
-                                    borderColor: '#3cba9f',
+                                    borderColor: 'rgb(255,0,0)',
                                     fill: false
                                   },
                                   {
                                     data: this.graphData.sell_cash_min,
                                     label: "min",
-                                    borderColor: 'rgb(135,206,235)',
+                                    borderColor: 'rgb(0,255,0)',
                                     fill:false
                                   }
                                 ]

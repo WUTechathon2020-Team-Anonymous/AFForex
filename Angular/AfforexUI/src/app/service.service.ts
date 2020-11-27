@@ -29,4 +29,10 @@ readonly ApiUrl = 'http://127.0.0.1:8000';
   getLiveRates(val:any){
     return this.http.post(this.ApiUrl + '/live_rates/',val);
   }
+
+  getEmail(val:any){
+    return this.http.post(this.ApiUrl + '/email/',val);
+  }
+
+
 }

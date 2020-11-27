@@ -13,7 +13,7 @@ class LiveRates():
 		# self.firefox_options.set_preference('geo.enabled', False)
 		self.firefox_options.set_preference("geo.prompt.testing", True)
 		self.firefox_options.set_preference("geo.prompt.testing.allow", False)
-		self.firefox_driver_path = "/usr/local/bin/geckodriver"#"./../../drivers/geckodriver"
+		self.firefox_driver_path ="D:\\Fourth Year\\WU\\Final Project\\AFForex\\Web Scraping\\geckodriver" #"/usr/local/bin/geckodriver"#"./../../drivers/geckodriver"
 
 		self.currency_holder_class = 'dDoNo.vk_bk.gsrt.gzfeS'
 

@@ -39,7 +39,7 @@ export class ChatComponent implements OnInit {
       console.log(this.reply);
     });
 
-    var userHtml = '<div style = "display: flex;justify-content: flex-end;align-items: center;"><span style = "display: flex;justify-content: flex-end;margin: 0.75rem;padding: 0.5rem;background-color: #ddd;border-radius: 25px;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);word-break: break-all;">' + this.msg + '</span></div>';
+    var userHtml = '<div style = "display: flex;justify-content: flex-end;align-items: center;"><span style = "display: flex;justify-content: flex-end;margin: 0.75rem;padding: 0.5rem;background-color: #ddd;border-radius: 25px;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);word-break: break-all;">' + this.msg + '</span><img src="/assets/img/me.svg" style= "  width: 45px;height: 45px;border-radius: 50%;object-fit: cover;"></div>';
     var node = document.createElement("p");
     // node.className = "botText"
     node.innerHTML = userHtml;
@@ -55,13 +55,14 @@ export class ChatComponent implements OnInit {
     setTimeout(
       () =>{
       this.replymsg = this.reply.response;
-      var botHtml = '<p style = "color: white;font-family: monospace;font-size: 17px;text-align: left;line-height: 30px;"><span style = "background-color: #4169e1;padding: 10px;border-radius: 2px;">' + this.replymsg + "</span></p>";
+      // var botHtml = '<p style = "color: white;font-family: monospace;font-size: 17px;text-align: left;line-height: 30px;"><span style = "background-color: #4169e1;padding: 10px;border-radius: 2px;">' + this.replymsg + "</span></p>";
+      var botHtml = '<div style = "display: flex;align-items: center;" ><img src="/assets/img/person.svg" alt="" style= "  width: 45px;height: 45px;border-radius: 50%;object-fit: cover;"><span style = "background-color: black;color: white;padding: 0.5rem;border-radius: 25px;margin-left: 1rem; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);">'+ this.replymsg +'</span> </div>';
       var node = document.createElement("p");
       // node.className = "botText"
       node.innerHTML = botHtml;
-      document.getElementById("chatbox")?.appendChild(node);
+      document.getElementById("test2")?.appendChild(node);
       console.log("output");
-    },2000
+    },5000
     )
   }
 }
