@@ -4,6 +4,12 @@ from datetime import date
 
 # Create your models here.
 
+class Subscriber(models.Model):
+	email = models.EmailField(blank=True)
+
+	def __str__(self):
+		return f'{self.id}'
+
 class Currency_Chart(models.Model):
 	name = models.CharField(max_length=100,unique=True, null=False, primary_key=True, default='chart')
 	buy_cash = models.FloatField(default=1)

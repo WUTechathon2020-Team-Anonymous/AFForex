@@ -8,4 +8,5 @@ urlpatterns = [
 	path('chatbot/', views.chatbot, name='chatbot'),
 	path('min_max_values/', views.min_max_values, name='min_max_values'),
 	path('api/',views.AllCurrencies),
+	path('email/', views.email, name='email'),
 ]

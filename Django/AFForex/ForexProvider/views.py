@@ -1,24 +1,26 @@
 from django.shortcuts import render
 from django.utils import timezone
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 
 from django.views.decorators.csrf import csrf_exempt
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
+from django.conf import settings
 
 from .serializer import ForexPrviderSerializer,BuyCashHighSerializer,BuyCashLowSerializer
 from django.core import serializers
 
 from collections import OrderedDict
-import time, threading, sys, json
+import time, threading, sys, json, os
 from datetime import date, timedelta
 import numpy as np
+import socket, pickle
 
 from .models import ForexProvider
 from .forex_rates import ForexProviderRates, currency_index, payment_method_format
 from .models import Buy_Cash_Low, Buy_Cash_High, Buy_Card_Low, Buy_Card_High
 from .models import Sell_Cash_Low, Sell_Cash_High, Sell_Card_Low, Sell_Card_High
-from .models import Daily_Currencies_Value
+from .models import Daily_Currencies_Value,Subscriber
 from .live_rates import LiveRates
 from .chatbot_python_client import chat
 from .load_database import load_min_max_table, load_currency_history_table
@@ -53,12 +55,12 @@ def AllCurrencies(request):
 
 
 def home(request):
-	print("*************")
-	# send_mail('Subject here', 'Here is the message.', 'wutechathon@gmail.com', ['gautamgodbole99@gmail.com', 'saumitrasapre69@gmail.com'])
-	# currencies_name = list(currency_index.keys())
-	# load_min_max_table(currencies_name)
-	# load_currency_history_table(currencies_name)
-	print("*************")
+	# print("*************")
+	# # send_mail('Subject here', 'Here is the message.', 'wutechathon2020@gmail.com', ['gautamgodbole99@gmail.com', 'saumitrasapre69@gmail.com'])
+	# # currencies_name = list(currency_index.keys())
+	# # load_min_max_table(currencies_name)
+	# # load_currency_history_table(currencies_name)
+	# print("*************")
 	return render(request, 'ForexProvider/home.html')
 
 @csrf_exempt
@@ -120,31 +122,96 @@ def live_rates(request):
 	input_currencies = [currency_from, currency_to]
 	number_of_days = 7
 
+	if currency_from != '' and currency_to !='':
+		values = []
+		dates = []
+
+		global dbLock
+
+		while dbLock:
+			pass
+
+		dbLock = True
+		for i in range(number_of_days):
+			try:
+				obj = Daily_Currencies_Value.objects.get(date=date.today() - timedelta(days=i))
+				dates.insert(0, str(obj.date))
+				from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
+				values.insert(0, (from_value / to_value))
+			except Exception:
+				pass
+		dbLock = False
+
+		predicted_values, future_dates = predict(currency_from, currency_to)
+		values.extend(predicted_values)
+		dates.extend(future_dates)
+
+		context = {
+			'currency_value': values,
+			'dates': dates
+		}
+	else:
+		context = {
+			'currency_value': [],
+			'dates': []
+		}
+	return JsonResponse(context, safe=False)
+	# return render(request, 'ForexProvider/live_rates.html', {'value': value})
+
+def predict(from_currency, to_currency):
+	# loadedJsonData = json.loads(request.body.decode('utf-8'))
+	currency_from = from_currency #loadedJsonData.get('currency_from')
+	currency_to = to_currency #loadedJsonData.get('currency_to')
+	number_of_days_to_predict = 5#loadedJsonData.get('days')
+	
+	prediction_model_ip = '192.168.1.11'
+	prediction_model_port = 4444
+	prediction_socket = socket.socket()
+	input_currencies = list([currency_from, currency_to])
+	number_of_days = 7
 	values = []
 	dates = []
+
+	for i in range(number_of_days_to_predict):
+		dates.append(date.today() + timedelta(days=(1+i)))
 
 	global dbLock
 
 	while dbLock:
 		pass
-
 	dbLock = True
 	for i in range(number_of_days):
 		try:
 			obj = Daily_Currencies_Value.objects.get(date=date.today() - timedelta(days=i))
-			dates.insert(0, str(obj.date))
 			from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies]
 			values.insert(0, (from_value / to_value))
 		except Exception:
 			pass
 	dbLock = False
+	values.append(number_of_days_to_predict)
+	values.insert(0, currency_to)
+	values.insert(0, currency_from)
 
-	context = {
-		'currency_value': values,
-		'dates': dates
-	}
-	return JsonResponse(context, safe=False)
-	# return render(request, 'ForexProvider/live_rates.html', {'value': value})
+	prediction_socket.connect((prediction_model_ip, prediction_model_port))
+	prediction_socket.send(pickle.dumps(values))
+	predicted_values = pickle.loads(prediction_socket.recv(1024))
+	prediction_socket.close()
+
+	return [predicted_values, dates]
+
+@csrf_exempt
+def email(request):
+	loadedJsonData = json.loads(request.body.decode('utf-8'))
+	subscriber_email = loadedJsonData.get('email')
+	global dbLock
+	while dbLock:
+		pass
+	dbLock = True
+	obj = Subscriber.objects.create(email = subscriber_email)
+	dbLock = False
+
+
+
 
 @csrf_exempt
 def chatbot(request):
@@ -153,6 +220,14 @@ def chatbot(request):
 	# message = str(request.POST['msg'])
 	print(message)
 	paramsPresent, amount, curr_from, curr_to, fulfillment_text,action = chat(message)
+	if paramsPresent == "True" and action!="input.welcome":
+		obj = Daily_Currencies_Value.objects.get(date=date.today())
+		input_currencies = [curr_from.lower(), curr_to.lower()]
+		from_value, to_value = [getattr(obj.currencies, cname) for cname in input_currencies ]
+		rate = from_value/to_value
+		total_value = float(amount) * rate
+		predicted_values = predict(curr_from.lower(),curr_to.lower())
+		fulfillment_text += "\n The exchange rate is {0}. \n The converted value is {1}.\n The predicted values for the next 5 days are:\n {2}".format(rate,total_value,str(predicted_values))
 	context = {'response': fulfillment_text}
 	return JsonResponse(context, safe=False)
 
@@ -223,6 +298,12 @@ def min_max_values(request):
 		except Exception:
 			pass
 
+	for i in range(0, categories, 2):
+		for j in range(number_of_days):
+			if history[i][j] > history[i+1][j]:
+				history[i][j], history[i+1][j] = history[i+1][j], history[i]
+
+
 	dbLock = False
 
 	context = {}
@@ -253,66 +334,135 @@ class UpdateForexRates(threading.Thread):
 		print(time.ctime())
 
 		global dbLock
-		forex_provider_rates = ForexProviderRates()
+		# forex_provider_rates = ForexProviderRates()
 
-		values = forex_provider_rates.scrape_bookmyforex()
-		if len(values)>0:
-			while dbLock:
-				pass
-			dbLock = True
-			obj = ForexProvider.objects.get(name="BookMyForex")
-			set_values_for_forex_provider(obj, values)
-			obj.lastupdated = timezone.now()
-			obj.save()
-			dbLock = False
-			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
+		# values = forex_provider_rates.scrape_bookmyforex()
+		# if len(values)>0:
+		# 	while dbLock:
+		# 		pass
+		# 	dbLock = True
+		# 	obj = ForexProvider.objects.get(name="BookMyForex")
+		# 	set_values_for_forex_provider(obj, values)
+		# 	obj.lastupdated = timezone.now()
+		# 	obj.save()
+		# 	dbLock = False
+		# 	compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 
-		values = forex_provider_rates.scrape_thomascook()
-		if len(values)>0:
-			while dbLock:
-				pass
-			dbLock = True
-			obj = ForexProvider.objects.get(name="ThomasCook")
-			set_values_for_forex_provider(obj, values)
-			obj.lastupdated = timezone.now()
-			obj.save()
-			dbLock = False
-			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
+		# values = forex_provider_rates.scrape_thomascook()
+		# if len(values)>0:
+		# 	while dbLock:
+		# 		pass
+		# 	dbLock = True
+		# 	obj = ForexProvider.objects.get(name="ThomasCook")
+		# 	set_values_for_forex_provider(obj, values)
+		# 	obj.lastupdated = timezone.now()
+		# 	obj.save()
+		# 	dbLock = False
+		# 	compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 			
 
-		values = forex_provider_rates.scrape_currencykart()
-		if len(values)>0:
-			while dbLock:
-				pass
-			dbLock = True
-			obj = ForexProvider.objects.get(name="CurrencyKart")
-			set_values_for_forex_provider(obj, values)
-			obj.lastupdated = timezone.now()
-			obj.save()
-			dbLock = False
-			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
+		# values = forex_provider_rates.scrape_currencykart()
+		# if len(values)>0:
+		# 	while dbLock:
+		# 		pass
+		# 	dbLock = True
+		# 	obj = ForexProvider.objects.get(name="CurrencyKart")
+		# 	set_values_for_forex_provider(obj, values)
+		# 	obj.lastupdated = timezone.now()
+		# 	obj.save()
+		# 	dbLock = False
+		# 	compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 
 
-		values = forex_provider_rates.scrape_zenithforex()
-		if len(values)>0:
-			while dbLock:
-				pass
-			dbLock = True
-			obj = ForexProvider.objects.get(name="Zenith")
-			set_values_for_forex_provider(obj, values)
-			obj.lastupdated = timezone.now()
-			obj.save()
-			dbLock = False
-			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
+		# values = forex_provider_rates.scrape_zenithforex()
+		# if len(values)>0:
+		# 	while dbLock:
+		# 		pass
+		# 	dbLock = True
+		# 	obj = ForexProvider.objects.get(name="Zenith")
+		# 	set_values_for_forex_provider(obj, values)
+		# 	obj.lastupdated = timezone.now()
+		# 	obj.save()
+		# 	dbLock = False
+		# 	compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 
 
-		set_values_for_min_max_tables(self.min_value, self.max_value, self.min_max_table)
-		update_currency_exchange_values()
-
+		# set_values_for_min_max_tables(self.min_value, self.max_value, self.min_max_table)
+		# update_currency_exchange_values()
+		# send_mail_to_subscriber()
+		print(predict('usd','inr'))
 		print("\n\nEnd of Run\n\n")
 
 
+def send_mail_to_subscriber():
+	global dbLock
+	while dbLock:
+		pass
+	dbLock = True
+	objects_list = Subscriber.objects.all()
+	emails = []
+	for object in objects_list:
+		emails.append(str(object.email))
+	currencies_name = list(currency_index.keys())
+	currencies_name_length = len(currencies_name)
+	payment_options = list(payment_method_format.keys())
+	types = ['min', 'max']
+	payment_options_length = len(payment_options)
+	types_length = len(types)
+	categories = payment_options_length * types_length
+	history = np.zeros([currencies_name_length, categories])
 
+	header = []
+	for i in range(payment_options_length):
+		for j in range(types_length):
+			header.append(payment_options[i] + '_' + types[j])
+	header.insert(0, "Currency")
+	obj = Buy_Cash_Low.objects.get(date=date.today())
+	history[:, 0] = [getattr(obj.currencies, cname) for cname in currencies_name]
+
+	obj = Buy_Cash_High.objects.get(date=date.today())
+	history[:, 1] = [getattr(obj.currencies, cname) for cname in currencies_name]
+
+	obj = Buy_Card_Low.objects.get(date=date.today())
+	history[:, 2] = [getattr(obj.currencies, cname) for cname in currencies_name]
+
+	obj = Buy_Card_High.objects.get(date=date.today())
+	history[:, 3] = [getattr(obj.currencies, cname) for cname in currencies_name]
+
+	obj = Sell_Cash_Low.objects.get(date=date.today())
+	history[:, 4] = [getattr(obj.currencies, cname) for cname in currencies_name]
+
+	obj = Sell_Cash_High.objects.get(date=date.today())
+	history[:, 5] = [getattr(obj.currencies, cname) for cname in currencies_name]
+
+	obj = Sell_Card_Low.objects.get(date=date.today())
+	history[:, 6] = [getattr(obj.currencies, cname) for cname in currencies_name]
+
+	obj = Sell_Card_High.objects.get(date=date.today())
+	history[:, 7] = [getattr(obj.currencies, cname) for cname in currencies_name]
+	dbLock = False
+	with open(os.path.join(settings.BASE_DIR, 'Resources/day_'+ str(date.today()) +'.csv'), 'w') as csvfile:
+		for i in range(currencies_name_length):
+			if i == 0:
+				for val in header:
+					csvfile.write(val + ",")
+				csvfile.write("\n")
+				csvfile.flush()
+			temp = list(history[i])
+			temp.insert(0, currencies_name[i])
+			for j in range(categories+1):
+				csvfile.write(str(temp[j]) + ",")
+			csvfile.write("\n")
+			csvfile.flush()
+
+	email = EmailMessage(
+        str(date.today()) + ' Forex Sheet',
+        'Dear Subscriber,\n\nFind today\'s Forex Sheet here\n\n*All The Rates are relative to INR',
+        'wutechathon2020@gmail.com',
+        emails,
+    )
+	email.attach_file(os.path.join(settings.BASE_DIR, 'Resources/day_'+ str(date.today()) +'.csv'))
+	email.send()
 
 def update_currency_exchange_values():
 	currencies_name = list(currency_index.keys())
@@ -432,4 +582,4 @@ def callback():
 			break
 	threading.Timer(600, callback).start()
 
-# callback()
+callback()
