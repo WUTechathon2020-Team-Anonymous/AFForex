@@ -301,7 +301,7 @@ def min_max_values(request):
 	for i in range(0, categories, 2):
 		for j in range(number_of_days):
 			if history[i][j] > history[i+1][j]:
-				history[i][j], history[i+1][j] = history[i+1][j], history[i]
+				history[i][j], history[i+1][j] = history[i+1][j], history[i][j]
 
 
 	dbLock = False
@@ -334,62 +334,62 @@ class UpdateForexRates(threading.Thread):
 		print(time.ctime())
 
 		global dbLock
-		# forex_provider_rates = ForexProviderRates()
+		forex_provider_rates = ForexProviderRates()
 
-		# values = forex_provider_rates.scrape_bookmyforex()
-		# if len(values)>0:
-		# 	while dbLock:
-		# 		pass
-		# 	dbLock = True
-		# 	obj = ForexProvider.objects.get(name="BookMyForex")
-		# 	set_values_for_forex_provider(obj, values)
-		# 	obj.lastupdated = timezone.now()
-		# 	obj.save()
-		# 	dbLock = False
-		# 	compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
+		values = forex_provider_rates.scrape_bookmyforex()
+		if len(values)>0:
+			while dbLock:
+				pass
+			dbLock = True
+			obj = ForexProvider.objects.get(name="BookMyForex")
+			set_values_for_forex_provider(obj, values)
+			obj.lastupdated = timezone.now()
+			obj.save()
+			dbLock = False
+			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 
-		# values = forex_provider_rates.scrape_thomascook()
-		# if len(values)>0:
-		# 	while dbLock:
-		# 		pass
-		# 	dbLock = True
-		# 	obj = ForexProvider.objects.get(name="ThomasCook")
-		# 	set_values_for_forex_provider(obj, values)
-		# 	obj.lastupdated = timezone.now()
-		# 	obj.save()
-		# 	dbLock = False
-		# 	compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
+		values = forex_provider_rates.scrape_thomascook()
+		if len(values)>0:
+			while dbLock:
+				pass
+			dbLock = True
+			obj = ForexProvider.objects.get(name="ThomasCook")
+			set_values_for_forex_provider(obj, values)
+			obj.lastupdated = timezone.now()
+			obj.save()
+			dbLock = False
+			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 			
 
-		# values = forex_provider_rates.scrape_currencykart()
-		# if len(values)>0:
-		# 	while dbLock:
-		# 		pass
-		# 	dbLock = True
-		# 	obj = ForexProvider.objects.get(name="CurrencyKart")
-		# 	set_values_for_forex_provider(obj, values)
-		# 	obj.lastupdated = timezone.now()
-		# 	obj.save()
-		# 	dbLock = False
-		# 	compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
+		values = forex_provider_rates.scrape_currencykart()
+		if len(values)>0:
+			while dbLock:
+				pass
+			dbLock = True
+			obj = ForexProvider.objects.get(name="CurrencyKart")
+			set_values_for_forex_provider(obj, values)
+			obj.lastupdated = timezone.now()
+			obj.save()
+			dbLock = False
+			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 
 
-		# values = forex_provider_rates.scrape_zenithforex()
-		# if len(values)>0:
-		# 	while dbLock:
-		# 		pass
-		# 	dbLock = True
-		# 	obj = ForexProvider.objects.get(name="Zenith")
-		# 	set_values_for_forex_provider(obj, values)
-		# 	obj.lastupdated = timezone.now()
-		# 	obj.save()
-		# 	dbLock = False
-		# 	compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
+		values = forex_provider_rates.scrape_zenithforex()
+		if len(values)>0:
+			while dbLock:
+				pass
+			dbLock = True
+			obj = ForexProvider.objects.get(name="Zenith")
+			set_values_for_forex_provider(obj, values)
+			obj.lastupdated = timezone.now()
+			obj.save()
+			dbLock = False
+			compute_min_max_table(self.number_of_currencies, self.payment_options, values, self.min_max_table)
 
 
-		# set_values_for_min_max_tables(self.min_value, self.max_value, self.min_max_table)
-		# update_currency_exchange_values()
-		# send_mail_to_subscriber()
+		set_values_for_min_max_tables(self.min_value, self.max_value, self.min_max_table)
+		update_currency_exchange_values()
+		send_mail_to_subscriber()
 		print(predict('usd','inr'))
 		print("\n\nEnd of Run\n\n")
 
@@ -580,6 +580,6 @@ def callback():
 		updaterates_object.start()
 		if updaterates_object.is_alive():
 			break
-	threading.Timer(600, callback).start()
+	threading.Timer(900, callback).start()
 
 callback()

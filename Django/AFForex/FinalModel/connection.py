@@ -44,6 +44,20 @@ inr = model_from_json(model_json)
 # load weights
 inr.load_weights("INRUSDMODEL\\INRUSDweights.h5")
 
+file = open("AUDUSDMODEL\\AUDUSD", 'r')
+model_json = file.read()
+file.close()
+aud = model_from_json(model_json)
+# load weights
+aud.load_weights("AUDUSDMODEL\\AUDUSDweights.h5")
+
+file = open("GBPUSDMODEL\\GBPUSD", 'r')
+model_json = file.read()
+file.close()
+gbp = model_from_json(model_json)
+# load weights
+gbp.load_weights("GBPUSDMODEL\\GBPUSDweights.h5")
+
 # with open(base_dir+'INRUSD.pkl', 'rb') as inrfile:
 #     inr = pickle.load(inrfile)
 # with open(base_dir+'EURUSD.pkl', 'rb') as eurfile:
@@ -54,7 +68,7 @@ inr.load_weights("INRUSDMODEL\\INRUSDweights.h5")
 #     aud = pickle.load(audfile)
 
 base_currency = 'usd'
-currency_model_mapping = {'inr': inr, 'eur': eur}#, 'gbp': gbp, 'aud': aud}
+currency_model_mapping = {'inr': inr, 'eur': eur, 'gbp': gbp, 'aud': aud}
 
 while True:
     connected_socket, address = prediction_model_socket.accept()
