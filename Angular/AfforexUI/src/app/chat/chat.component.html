@@ -1,0 +1,38 @@
+<!-- <section>
+    <div class="boxed">
+        <div>
+            <div class="chat-area" id="chatbox">
+                <p class="botText">
+                    <span>Hi! I'm Afforex your personal ChatBot </span>
+                </p>
+            </div>
+            <div id="userInput">
+                <input id="textInput" type="text" [(ngModel)]="msg" (keyup.enter)="onKey($event)" name="msg" placeholder="Message" />
+                <button (click)="submit($event)">click</button>
+            </div>
+            {{ msg }}
+        </div>
+    </div>
+</section> -->
+<section>
+    <!-- <h1>Chat Popup</h1>
+    <p>Click on the chat button to start chatting</p>
+
+    <button class="chat-btn"> 
+        <i class="material-icons"> comment </i>
+    </button> -->
+    <div class="chat-popup">
+        <div id="test2" class="chat-area">
+            <div id="test1" class="income-msg">
+                <!-- <img src="./img/person.svg" class="avatar" alt=""> -->
+                <mat-icon>desktop_mac</mat-icon>
+                <span class="msg"> Hi, How can I help you?</span>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <input id="textInput" type="text" [(ngModel)]="msg" (keyup.enter)="onKey($event)" name="msg" placeholder="Message">
+            <button (click)="submit($event)"> <i class="material-icons"> send</i></button>
+        </div>
+    </div>
+</section>

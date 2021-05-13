@@ -4,12 +4,18 @@
 	<title>Forex</title>
 </head>
 <body>
-	<h1>Forex Body</h1>
-	<table>
+	<h2>Forex Chart</h2>
+	<table border="1">
 		{% for provider in providers %}
 			<tr>
 				{% for key,value in provider.items %}
-					<td>{{ value }}</td>
+					{% if forloop.first %}
+						<td>
+							<a href="{{ value }}">{{ key }}</a>
+						</td>
+					{% else %}
+						<td>{{ value }}</td>
+					{% endif %}
 				{% endfor %}
 			</tr>
 		{% endfor %}		
